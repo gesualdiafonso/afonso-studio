@@ -1,0 +1,29 @@
+/* ==========================================================================
+   A-CORE STAGE — persistent 3D layer shared by all sections.
+   Stacking: section backgrounds & decor (z auto) < stage (z 0, later in DOM)
+   < section content (z ≥ 10). Content wrappers must be `relative z-10`.
+   ========================================================================== */
+.acore-stage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+  transform-origin: center;
+  will-change: transform;
+  opacity: 0;
+  transition: opacity var(--duration-cinematic) var(--ease-out-expo);
+}
+
+.acore-stage[data-ready="true"] {
+  opacity: 1;
+}
+
+/* 2D fallbacks inside anchors step aside while the 3D stage runs. */
+[data-acore-fallback] {
+  transition: opacity var(--duration-slow) var(--ease-standard);
+}
+
+html[data-acore="3d"] [data-acore-fallback] {
+  opacity: 0;
+}

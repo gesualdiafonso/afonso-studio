@@ -1,0 +1,88 @@
+/* ==========================================================================
+   SELECTED WORK — section-scoped styles (namespaced global CSS, `work-*`).
+   ========================================================================== */
+
+[data-work="root"] {
+  /* Where stacked cards stick (desktop) and how much each one steps down */
+  --work-top: max(4.5rem, 7svh);
+  --work-step: 14px;
+  --work-card-h: min(46rem, calc(100svh - var(--work-top) - var(--spacing-dock) - 1.5rem));
+}
+
+.work-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.875rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+@media (min-width: 64rem) {
+  .work-item {
+    position: sticky;
+    top: calc(var(--work-top) + var(--i, 0) * var(--work-step));
+  }
+
+  .work-surface {
+    height: var(--work-card-h);
+    transform-origin: 50% 0%;
+  }
+}
+
+/* Typical laptop heights: hide the highlights so the card never clips;
+   they stay visible on tall screens, on mobile and in the case study. */
+@media (min-width: 64rem) and (max-height: 60rem) {
+  .work-engineering {
+    display: none;
+  }
+}
+
+/* ── Case-study dialog ──────────────────────────────────────────────────── */
+.work-dialog {
+  opacity: 0;
+  translate: 0 24px;
+  transition:
+    opacity var(--duration-base) var(--ease-standard),
+    translate var(--duration-slow) var(--ease-out-expo),
+    overlay var(--duration-base) allow-discrete,
+    display var(--duration-base) allow-discrete;
+}
+
+.work-dialog[open] {
+  opacity: 1;
+  translate: 0 0;
+}
+
+@starting-style {
+  .work-dialog[open] {
+    opacity: 0;
+    translate: 0 24px;
+  }
+}
+
+.work-dialog::backdrop {
+  background-color: rgb(23 33 43 / 0);
+  backdrop-filter: blur(0);
+  transition:
+    background-color var(--duration-base) var(--ease-standard),
+    backdrop-filter var(--duration-base) var(--ease-standard),
+    overlay var(--duration-base) allow-discrete,
+    display var(--duration-base) allow-discrete;
+}
+
+.work-dialog[open]::backdrop {
+  background-color: rgb(23 33 43 / 0.55);
+  backdrop-filter: blur(6px);
+}
+
+@starting-style {
+  .work-dialog[open]::backdrop {
+    background-color: rgb(23 33 43 / 0);
+    backdrop-filter: blur(0);
+  }
+}
+
+html.work-dialog-open {
+  overflow: hidden;
+}

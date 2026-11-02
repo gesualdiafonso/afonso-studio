@@ -1,0 +1,162 @@
+/* ==========================================================================
+   PROCESS — section-scoped styles (`proc-*`).
+   State set by process-scene.tsx (defaults = everything complete, so the
+   timeline reads fully without JS or with reduced motion):
+     .proc-list --proc-p             0…1 progress of the rail
+     li[data-proc-stage][data-active] stage reached
+     section[data-process-active]    index of the latest reached stage
+   ========================================================================== */
+
+[data-process="root"] {
+  --proc-visual: min(32vw, 54svh);
+}
+
+/* ── Rail ─────────────────────────────────────────────────────────────── */
+.proc-rail,
+.proc-rail-fill {
+  position: absolute;
+  left: calc(var(--proc-node-col) / 2 - 1px);
+  width: 2px;
+  top: var(--proc-rail-top);
+  bottom: var(--proc-rail-bottom);
+  border-radius: 2px;
+}
+
+.proc-list {
+  --proc-node-col: 2.75rem;
+  --proc-rail-top: 1.25rem;
+  --proc-rail-bottom: 2.5rem;
+}
+
+.proc-rail {
+  background: var(--color-line);
+}
+
+.proc-rail-fill {
+  background: linear-gradient(180deg, var(--color-accent-blue), var(--color-accent-cyan) 60%, var(--color-accent-mint));
+  transform: scaleY(var(--proc-p, 1));
+  transform-origin: top center;
+}
+
+/* Glowing tip that rides the end of the progress line */
+.proc-rail-tip {
+  position: absolute;
+  left: calc(var(--proc-node-col) / 2);
+  top: calc(var(--proc-rail-top) + (100% - var(--proc-rail-top) - var(--proc-rail-bottom)) * var(--proc-p, 1));
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 9999px;
+  background: var(--color-accent-mint);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent-mint) 25%, transparent);
+  animation: proc-pulse 1.8s var(--ease-standard) infinite;
+}
+
+@keyframes proc-pulse {
+  50% {
+    box-shadow: 0 0 0 9px color-mix(in srgb, var(--color-accent-mint) 0%, transparent);
+  }
+}
+
+/* ── Stage node + branch trace ────────────────────────────────────────── */
+.proc-node {
+  border: 2px solid var(--color-line-strong);
+  background: var(--color-canvas);
+  transition:
+    border-color var(--duration-base) var(--ease-standard),
+    background-color var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-out-back);
+}
+
+[data-active="true"] .proc-node {
+  border-color: var(--color-brand-blue);
+  background: var(--color-accent-mint);
+  transform: scale(1.15);
+}
+
+.proc-branch path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset var(--duration-slow) var(--ease-out-expo);
+}
+
+.proc-branch circle {
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-standard) var(--duration-base);
+}
+
+[data-active="true"] .proc-branch path {
+  stroke-dashoffset: 0;
+}
+
+[data-active="true"] .proc-branch circle {
+  opacity: 1;
+}
+
+/* ── Stage content ────────────────────────────────────────────────────── */
+.proc-title {
+  color: var(--color-ink-secondary);
+  transition: color var(--duration-base) var(--ease-standard);
+}
+
+[data-active="true"] .proc-title {
+  color: var(--color-ink);
+}
+
+.proc-icon {
+  opacity: 0.45;
+  transform: scale(0.9);
+  transition:
+    opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-slow) var(--ease-out-back);
+}
+
+[data-active="true"] .proc-icon {
+  opacity: 1;
+  transform: none;
+}
+
+.proc-details {
+  opacity: 0.35;
+  transform: translateY(6px);
+  transition:
+    opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-slow) var(--ease-out-expo);
+}
+
+[data-active="true"] .proc-details {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Assembly meter next to the A-CORE ────────────────────────────────── */
+.proc-seg {
+  background: var(--color-line);
+  transition: background-color var(--duration-base) var(--ease-standard);
+}
+
+.proc-stage-label {
+  display: none;
+}
+
+[data-process-active="0"] .proc-seg:nth-child(-n + 1),
+[data-process-active="1"] .proc-seg:nth-child(-n + 2),
+[data-process-active="2"] .proc-seg:nth-child(-n + 3),
+[data-process-active="3"] .proc-seg:nth-child(-n + 4),
+[data-process-active="4"] .proc-seg:nth-child(-n + 5) {
+  background: linear-gradient(90deg, var(--color-accent-blue), var(--color-accent-cyan));
+}
+
+[data-process-active="0"] .proc-stage-label[data-index="0"],
+[data-process-active="1"] .proc-stage-label[data-index="1"],
+[data-process-active="2"] .proc-stage-label[data-index="2"],
+[data-process-active="3"] .proc-stage-label[data-index="3"],
+[data-process-active="4"] .proc-stage-label[data-index="4"] {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proc-rail-tip {
+    animation: none;
+  }
+}

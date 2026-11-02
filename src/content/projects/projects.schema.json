@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Selected Work — projects",
+  "description": "Projects shown in Section 04. Edit projects.json; VS Code shows these descriptions on hover and warns about missing fields. Order in the array = order on the page.",
+  "type": "object",
+  "required": ["projects"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "projects": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/project" }
+    }
+  },
+  "definitions": {
+    "localizedText": {
+      "type": "object",
+      "description": "Text per language. \"en\" is required; \"pt-BR\" and \"es\" fall back to English when missing.",
+      "required": ["en"],
+      "properties": {
+        "en": { "type": "string", "minLength": 1 },
+        "pt-BR": { "type": "string" },
+        "es": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "localizedList": {
+      "type": "object",
+      "description": "List of short items per language. \"en\" is required; other languages fall back to English when missing or empty.",
+      "required": ["en"],
+      "properties": {
+        "en": { "type": "array", "items": { "type": "string" } },
+        "pt-BR": { "type": "array", "items": { "type": "string" } },
+        "es": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "project": {
+      "type": "object",
+      "required": ["slug", "sample", "year", "client", "name", "industry", "summary", "challenge", "solution", "technologies", "preview"],
+      "properties": {
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "✏️ EDIT — unique id in lowercase-with-dashes. Used in the case-study link (#work-<slug>)."
+        },
+        "sample": {
+          "type": "boolean",
+          "description": "✏️ EDIT — true = example data (shows a 'Sample project' badge on the site). Set to false for your real projects."
+        },
+        "year": { "type": "string", "description": "✏️ EDIT — delivery year, e.g. \"2025\"." },
+        "client": {
+          "type": "object",
+          "required": ["name", "confidential"],
+          "properties": {
+            "name": { "type": "string", "description": "✏️ EDIT — client name, or a neutral description if confidential." },
+            "confidential": { "type": "boolean", "description": "✏️ EDIT — true shows 'Confidential client' instead of a logo/link." }
+          },
+          "additionalProperties": false
+        },
+        "name": { "$ref": "#/definitions/localizedText", "description": "✏️ EDIT — project name (card title)." },
+        "industry": { "$ref": "#/definitions/localizedText", "description": "✏️ EDIT — industry / segment." },
+        "summary": { "$ref": "#/definitions/localizedText", "description": "✏️ EDIT — one sentence shown under the name." },
+        "challenge": { "$ref": "#/definitions/localizedText", "description": "✏️ EDIT — the business problem (2–3 sentences)." },
+        "solution": { "$ref": "#/definitions/localizedText", "description": "✏️ EDIT — what was built (2–3 sentences)." },
+        "engineering": { "$ref": "#/definitions/localizedList", "description": "✏️ EDIT — 2–4 engineering highlights (architecture, integrations, security…)." },
+        "approach": { "$ref": "#/definitions/localizedList", "description": "✏️ EDIT — 3–5 steps of how the project was run (full case study)." },
+        "scope": { "$ref": "#/definitions/localizedList", "description": "✏️ EDIT — what you were responsible for (full case study)." },
+        "technologies": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" },
+          "description": "✏️ EDIT — technology names, same in every language."
+        },
+        "preview": {
+          "type": "object",
+          "required": ["image", "alt"],
+          "properties": {
+            "image": {
+              "type": "string",
+              "description": "✏️ EDIT — path inside /public, e.g. \"/projects/my-project.webp\". Recommended 1600×1000 (16:10), WebP or JPG."
+            },
+            "alt": { "$ref": "#/definitions/localizedText", "description": "✏️ EDIT — describe what the image shows (accessibility)." }
+          },
+          "additionalProperties": false
+        },
+        "outcomes": {
+          "$ref": "#/definitions/localizedList",
+          "description": "✏️ OPTIONAL — only real, client-approved results. Leave empty lists to hide the block. Never invent numbers."
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "live": { "type": ["string", "null"], "description": "✏️ OPTIONAL — public URL of the product, or null." },
+            "caseStudy": { "type": ["string", "null"], "description": "✏️ OPTIONAL — external full case study (PDF, article), or null." }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

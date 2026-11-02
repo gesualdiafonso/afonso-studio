@@ -1,0 +1,35 @@
+{
+  "brand": {
+    "tagline": "Estudio de ingeniería digital",
+    "description": "Diseñamos, desarrollamos e integramos soluciones digitales que ayudan a las empresas a evolucionar."
+  },
+  "navigation": {
+    "label": "Navegación por secciones",
+    "intro": "Inicio",
+    "philosophy": "Filosofía",
+    "services": "Servicios",
+    "projects": "Proyectos",
+    "solutions": "Soluciones",
+    "process": "Proceso",
+    "technology": "Tecnología",
+    "studio": "Estudio",
+    "contact": "Contacto"
+  },
+  "actions": {
+    "startProject": "Iniciar un proyecto",
+    "exploreServices": "Explorar servicios",
+    "viewProject": "Ver proyecto",
+    "viewCaseStudy": "Ver caso de estudio",
+    "sendMessage": "Enviar mensaje",
+    "skipToContent": "Saltar al contenido"
+  },
+  "contact": {
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "location": "Ubicación"
+  },
+  "a11y": {
+    "logo": "{name} — inicio",
+    "externalLink": "se abre en una nueva pestaña"
+  }
+}

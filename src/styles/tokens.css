@@ -1,0 +1,324 @@
+/* ==========================================================================
+   DESIGN TOKENS — single source of truth for every visual value.
+   - Primitive tokens (brand, tonal scales, neutrals) are raw values.
+   - Semantic tokens reference primitives and are what components consume.
+   - `@theme static` emits every variable even when no utility uses it, so
+     runtime / 3D code can always read values with `readToken()`.
+   - TypeScript never duplicates values: `src/config/design.ts` only holds
+     token NAMES. Motion values are mirrored in `src/config/motion.tokens.json`
+     and checked by `npm run validate:tokens`.
+   ========================================================================== */
+
+@theme static {
+  /* Remove Tailwind's default palette, fonts, radii and shadows so only
+     brand-approved values exist. */
+  --color-*: initial;
+  --font-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --ease-*: initial;
+
+  /* ---------------------------------------------------------------------
+     1. BRAND PRIMITIVES (from the logo — do not add alternative brand hues)
+     --------------------------------------------------------------------- */
+  --color-brand-blue: #007bff;
+  --color-brand-cyan: #00ccff;
+  --color-brand-mint: #00ff99;
+  --color-brand-graphite: #2e2e2e;
+
+  /* Tonal steps of the brand blue (same hue, needed for AA text/buttons).
+     #007BFF is 3.98:1 on white → graphics, large display, accents only. */
+  --color-blue-50: #ebf4ff;
+  --color-blue-100: #d6e9ff;
+  --color-blue-200: #a8d1ff;
+  --color-blue-300: #6bb2ff;
+  --color-blue-400: #3395ff;
+  --color-blue-500: #007bff;
+  --color-blue-600: #0066d6; /* 5.42:1 on white — buttons, links, focus */
+  --color-blue-700: #0057b8; /* hover */
+  --color-blue-800: #004c9e; /* active / pressed */
+  --color-blue-900: #003570;
+
+  --color-cyan-100: #d9f7ff;
+  --color-cyan-500: #00ccff;
+  --color-cyan-700: #007a99; /* only if cyan-family TEXT is ever needed on light */
+
+  --color-mint-100: #d6ffec;
+  --color-mint-500: #00ff99;
+  --color-mint-700: #00804d; /* only if mint-family TEXT is ever needed on light */
+
+  /* Interface neutrals */
+  --color-white: #ffffff;
+  --color-ice: #f5f8fa;
+  --color-cool-gray: #e9eff4;
+  --color-mist: #dce5ec;
+  --color-slate-400: #7a8a9c;
+  --color-slate-500: #5b6b80; /* supplied #64748B adjusted: 4.46 → 5.10:1 on ice */
+  --color-graphite: #2e2e2e;
+  --color-navy-950: #121a22;
+  --color-navy-900: #17212b;
+  --color-navy-800: #1f2b37;
+  --color-navy-700: #2a3846;
+  --color-navy-300: #8597a9;
+  --color-navy-200: #a9b6c4;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  /* ---------------------------------------------------------------------
+     2. INTERFACE ALIASES (names requested in the brief)
+     --------------------------------------------------------------------- */
+  --color-background: var(--color-ice);
+  --color-surface: var(--color-white);
+  --color-surface-muted: var(--color-cool-gray);
+  --color-text-primary: var(--color-graphite);
+  --color-text-secondary: var(--color-slate-500);
+  --color-dark-surface: var(--color-navy-900);
+  --color-border: var(--color-mist);
+
+  /* ---------------------------------------------------------------------
+     3. SEMANTIC TOKENS (what components use). Re-mapped by
+        [data-surface="dark"] below.
+     --------------------------------------------------------------------- */
+  /* Backgrounds */
+  --color-canvas: var(--color-ice);
+  --color-panel: var(--color-white);
+  --color-panel-muted: var(--color-cool-gray);
+  --color-panel-inverse: var(--color-navy-900);
+  --color-panel-glass: #ffffffb8;
+
+  /* Text hierarchy */
+  --color-ink: var(--color-graphite);
+  --color-ink-secondary: var(--color-slate-500);
+  --color-ink-subtle: var(--color-slate-400); /* ≥3:1 — large text / non-essential only */
+  --color-ink-inverse: var(--color-white);
+  --color-ink-on-action: var(--color-white);
+  --color-ink-on-accent: var(--color-graphite); /* text on cyan / mint badges */
+
+  /* Borders */
+  --color-line: var(--color-mist); /* decorative dividers only */
+  --color-line-strong: var(--color-slate-400); /* control boundaries, 3:1 */
+  --color-line-accent: var(--color-blue-500);
+
+  /* Primary action */
+  --color-action-primary: var(--color-blue-600);
+  --color-action-primary-hover: var(--color-blue-700);
+  --color-action-primary-active: var(--color-blue-800);
+
+  /* Secondary action (outline) */
+  --color-action-secondary: var(--color-transparent);
+  --color-action-secondary-hover: var(--color-cool-gray);
+  --color-action-secondary-active: var(--color-mist);
+  --color-action-secondary-ink: var(--color-graphite);
+  --color-action-secondary-line: var(--color-line-strong);
+  --color-action-secondary-line-hover: var(--color-graphite);
+
+  /* Selected / active state (e.g. navigation dock card) */
+  --color-state-active: var(--color-blue-500);
+  --color-state-active-ink: var(--color-white);
+  --color-state-selected-bg: var(--color-blue-50);
+
+  /* Links & focus */
+  --color-link: var(--color-blue-600);
+  --color-link-hover: var(--color-blue-800);
+  --color-focus: var(--color-blue-600);
+
+  /* Accents (graphics, badges, luminous details — never as text on light) */
+  --color-accent-blue: var(--color-brand-blue);
+  --color-accent-cyan: var(--color-brand-cyan);
+  --color-accent-mint: var(--color-brand-mint);
+
+  /* 3D / visual-effect tokens (read at runtime by the A-CORE scene) */
+  --color-fx-metal: #c7d2dd;
+  --color-fx-metal-dark: #3a4652;
+  --color-fx-highlight: var(--color-white);
+  --color-fx-glass: #00ccff1f;
+  --color-fx-glass-edge: #00ccff66;
+  --color-fx-reflection-blue: var(--color-brand-blue);
+  --color-fx-reflection-cyan: var(--color-brand-cyan);
+  --color-fx-emissive: var(--color-brand-mint);
+  --color-fx-glow: #007bff40;
+  --color-fx-shadow: #17212b33;
+  --color-fx-circuit: var(--color-brand-cyan);
+
+  /* ---------------------------------------------------------------------
+     4. TYPOGRAPHY  (Space Grotesk = display/headings/labels/nav · Inter = body)
+     Fluid sizes interpolate between 360px and 1440px viewports.
+     --------------------------------------------------------------------- */
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --text-display: clamp(3.25rem, 1.5rem + 7.7778vw, 8.5rem);
+  --text-display--line-height: 0.92;
+  --text-display--letter-spacing: -0.045em;
+  --text-display--font-weight: 600;
+
+  --text-h1: clamp(2.5rem, 1.5rem + 4.4444vw, 5.5rem);
+  --text-h1--line-height: 0.98;
+  --text-h1--letter-spacing: -0.035em;
+  --text-h1--font-weight: 600;
+
+  --text-h2: clamp(2rem, 1.4167rem + 2.5926vw, 3.75rem);
+  --text-h2--line-height: 1.04;
+  --text-h2--letter-spacing: -0.03em;
+  --text-h2--font-weight: 600;
+
+  --text-h3: clamp(1.5rem, 1.25rem + 1.1111vw, 2.25rem);
+  --text-h3--line-height: 1.12;
+  --text-h3--letter-spacing: -0.02em;
+  --text-h3--font-weight: 500;
+
+  --text-h4: clamp(1.25rem, 1.125rem + 0.5556vw, 1.625rem);
+  --text-h4--line-height: 1.2;
+  --text-h4--letter-spacing: -0.01em;
+  --text-h4--font-weight: 500;
+
+  --text-body-lg: clamp(1.125rem, 1.0625rem + 0.2778vw, 1.3125rem);
+  --text-body-lg--line-height: 1.55;
+  --text-body-lg--letter-spacing: -0.005em;
+
+  --text-body: clamp(1rem, 0.9792rem + 0.0926vw, 1.0625rem);
+  --text-body--line-height: 1.6;
+
+  --text-body-sm: clamp(0.875rem, 0.8542rem + 0.0926vw, 0.9375rem);
+  --text-body-sm--line-height: 1.55;
+
+  --text-label: clamp(0.75rem, 0.7292rem + 0.0926vw, 0.8125rem);
+  --text-label--line-height: 1.2;
+  --text-label--letter-spacing: 0.1em;
+  --text-label--font-weight: 500;
+
+  --text-nav: clamp(0.8125rem, 0.7917rem + 0.0926vw, 0.875rem);
+  --text-nav--line-height: 1;
+  --text-nav--letter-spacing: 0.04em;
+  --text-nav--font-weight: 500;
+
+  /* ---------------------------------------------------------------------
+     5. SPACING & LAYOUT  (Tailwind's 4px `--spacing` scale is kept)
+     --------------------------------------------------------------------- */
+  --spacing-gutter: clamp(1rem, 0.5rem + 2.2222vw, 2.5rem);
+  --spacing-grid-gap: clamp(1rem, 0.6667rem + 1.4815vw, 2rem);
+  --spacing-section: clamp(6rem, 4rem + 8.8889vw, 12rem);
+  --spacing-section-sm: clamp(4rem, 2.8333rem + 5.1852vw, 7.5rem);
+  /* Height reserved for the floating bottom navigation dock (Task 04). */
+  --spacing-dock: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+
+  /* Icon & icon-container sizes → size-icon-md, size-icon-box-lg, … */
+  --spacing-icon-xs: 0.875rem;
+  --spacing-icon-sm: 1rem;
+  --spacing-icon-md: 1.25rem;
+  --spacing-icon-lg: 1.5rem;
+  --spacing-icon-xl: 2rem;
+  --spacing-icon-box-sm: 2.5rem;
+  --spacing-icon-box-md: 3rem;
+  --spacing-icon-box-lg: 4rem;
+
+  /* Control heights (≥44px touch target) */
+  --spacing-control-md: 2.75rem;
+  --spacing-control-lg: 3.5rem;
+
+  --container-narrow: 48rem;
+  --container-prose: 42rem;
+  --container-site: 90rem;
+  --container-wide: 105rem;
+
+  /* ---------------------------------------------------------------------
+     6. RADIUS
+     --------------------------------------------------------------------- */
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-pill: 9999px;
+  --radius-control: var(--radius-md);
+  --radius-card: 1.25rem;
+  --radius-media: var(--radius-lg);
+  --radius-dock: 1.125rem;
+
+  /* ---------------------------------------------------------------------
+     7. SHADOWS (navy-tinted, soft, architectural — no neon)
+     --------------------------------------------------------------------- */
+  --shadow-xs: 0 1px 2px #17212b0f;
+  --shadow-sm: 0 1px 2px #17212b0f, 0 2px 8px #17212b0a;
+  --shadow-md: 0 2px 4px #17212b0a, 0 10px 24px -6px #17212b1a;
+  --shadow-lg: 0 4px 8px #17212b0a, 0 24px 48px -12px #17212b29;
+  --shadow-float: inset 0 1px 0 #ffffffcc, 0 2px 6px #17212b14, 0 16px 40px -12px #17212b38;
+  --shadow-glow: 0 0 0 1px #007bff33, 0 10px 32px -10px #007bff73;
+
+  /* ---------------------------------------------------------------------
+     8. IMAGE PROPORTIONS  → aspect-landscape, aspect-cinema, …
+     --------------------------------------------------------------------- */
+  --aspect-square: 1 / 1;
+  --aspect-portrait: 4 / 5;
+  --aspect-tall: 3 / 4;
+  --aspect-landscape: 3 / 2;
+  --aspect-wide: 16 / 9;
+  --aspect-cinema: 21 / 9;
+
+  /* ---------------------------------------------------------------------
+     9. MOTION  (mirrored in src/config/motion.tokens.json — keep in sync)
+     --------------------------------------------------------------------- */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.4, 0.64, 1);
+
+  --duration-instant: 120ms;
+  --duration-fast: 200ms;
+  --duration-base: 360ms;
+  --duration-slow: 640ms;
+  --duration-cinematic: 1200ms;
+
+  /* ---------------------------------------------------------------------
+     10. LAYERS
+     --------------------------------------------------------------------- */
+  --z-canvas: 0;
+  --z-content: 10;
+  --z-overlay: 40;
+  --z-dock: 50;
+  --z-modal: 60;
+}
+
+/* --------------------------------------------------------------------------
+   DARK SURFACE (Deep Navy sections). Apply data-surface="dark" to a section;
+   every semantic token inside it remaps automatically.
+   -------------------------------------------------------------------------- */
+[data-surface="dark"] {
+  --color-canvas: var(--color-navy-900);
+  --color-panel: var(--color-navy-800);
+  --color-panel-muted: var(--color-navy-700);
+  --color-panel-glass: #17212bb8;
+
+  --color-ink: var(--color-white);
+  --color-ink-secondary: var(--color-navy-200); /* 7.89:1 on navy */
+  --color-ink-subtle: var(--color-navy-300);
+  --color-ink-on-accent: var(--color-graphite);
+
+  --color-line: #ffffff1f;
+  --color-line-strong: var(--color-navy-300);
+  --color-line-accent: var(--color-brand-cyan);
+
+  --color-action-secondary-hover: #ffffff14;
+  --color-action-secondary-active: #ffffff24;
+  --color-action-secondary-ink: var(--color-white);
+  --color-action-secondary-line: var(--color-navy-300);
+  --color-action-secondary-line-hover: var(--color-white);
+
+  --color-state-selected-bg: #007bff29;
+
+  --color-link: var(--color-blue-400); /* 5.34:1 on navy */
+  --color-link-hover: var(--color-blue-300);
+  --color-focus: var(--color-brand-cyan); /* 8.60:1 on navy */
+
+  color-scheme: dark;
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+[data-surface="light"] {
+  color-scheme: light;
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+}

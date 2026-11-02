@@ -1,0 +1,13 @@
+import createMiddleware from "next-intl/middleware";
+import { routing } from "./i18n/routing";
+
+/**
+ * Next.js 16 "proxy" (formerly middleware.ts).
+ * Detects the preferred language and redirects "/" → "/eng" | "/pt-br" | "/es".
+ */
+export default createMiddleware(routing);
+
+export const config = {
+  // Everything except API routes, Next internals and files with an extension.
+  matcher: "/((?!api|trpc|_next|_vercel|.*\\..*).*)",
+};

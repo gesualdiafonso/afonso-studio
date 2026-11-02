@@ -1,0 +1,35 @@
+{
+  "brand": {
+    "tagline": "Digital engineering studio",
+    "description": "We design, build and integrate digital solutions that help businesses evolve."
+  },
+  "navigation": {
+    "label": "Section navigation",
+    "intro": "Intro",
+    "philosophy": "Philosophy",
+    "services": "Services",
+    "projects": "Projects",
+    "solutions": "Solutions",
+    "process": "Process",
+    "technology": "Technology",
+    "studio": "Studio",
+    "contact": "Contact"
+  },
+  "actions": {
+    "startProject": "Start a project",
+    "exploreServices": "Explore services",
+    "viewProject": "View project",
+    "viewCaseStudy": "View case study",
+    "sendMessage": "Send message",
+    "skipToContent": "Skip to content"
+  },
+  "contact": {
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location"
+  },
+  "a11y": {
+    "logo": "{name} — home",
+    "externalLink": "opens in a new tab"
+  }
+}

@@ -1,0 +1,274 @@
+{
+  "$schema": "./projects.schema.json",
+  "projects": [
+    {
+      "slug": "atlas-enterprise-platform",
+      "sample": true,
+      "year": "2025",
+      "client": { "name": "Industrial group (confidential)", "confidential": true },
+      "name": {
+        "en": "Atlas — Enterprise Management Platform",
+        "pt-BR": "Atlas — Plataforma de Gestão Empresarial",
+        "es": "Atlas — Plataforma de Gestión Empresarial"
+      },
+      "industry": {
+        "en": "Manufacturing · Enterprise operations",
+        "pt-BR": "Indústria · Operações corporativas",
+        "es": "Industria · Operaciones corporativas"
+      },
+      "summary": {
+        "en": "One platform for finance, procurement and inventory across five business units.",
+        "pt-BR": "Uma plataforma para finanças, compras e estoque em cinco unidades de negócio.",
+        "es": "Una plataforma para finanzas, compras e inventario en cinco unidades de negocio."
+      },
+      "challenge": {
+        "en": "Each unit ran its own spreadsheets and legacy tools. Purchase approvals took days, stock levels were never reliable and month-end closing depended on manual consolidation.",
+        "pt-BR": "Cada unidade usava suas próprias planilhas e sistemas legados. Aprovações de compra levavam dias, o estoque nunca era confiável e o fechamento do mês dependia de consolidação manual.",
+        "es": "Cada unidad usaba sus propias hojas de cálculo y sistemas heredados. Las aprobaciones de compra tardaban días, el inventario nunca era confiable y el cierre mensual dependía de consolidación manual."
+      },
+      "solution": {
+        "en": "A modular web platform with a single data model, role-based access per unit, approval workflows and integrations with the existing accounting system — delivered module by module so operations never stopped.",
+        "pt-BR": "Uma plataforma web modular com um único modelo de dados, acesso por perfil em cada unidade, fluxos de aprovação e integração com o sistema contábil existente — entregue módulo a módulo, sem parar a operação.",
+        "es": "Una plataforma web modular con un único modelo de datos, acceso por rol en cada unidad, flujos de aprobación e integración con el sistema contable existente, entregada módulo a módulo sin detener la operación."
+      },
+      "engineering": {
+        "en": ["Multi-unit data model with row-level security", "Event-driven approval workflows", "Bi-directional sync with the accounting ERP"],
+        "pt-BR": ["Modelo de dados multiunidade com segurança por linha", "Fluxos de aprovação orientados a eventos", "Sincronização bidirecional com o ERP contábil"],
+        "es": ["Modelo de datos multiunidad con seguridad por fila", "Flujos de aprobación orientados a eventos", "Sincronización bidireccional con el ERP contable"]
+      },
+      "approach": {
+        "en": ["Mapped every approval and stock movement with each unit's team.", "Designed a shared data model and the permission matrix before any interface.", "Released procurement first, then inventory and finance, migrating data per unit."],
+        "pt-BR": ["Mapeamos cada aprovação e movimentação de estoque com a equipe de cada unidade.", "Desenhamos o modelo de dados compartilhado e a matriz de permissões antes de qualquer tela.", "Lançamos compras primeiro, depois estoque e finanças, migrando os dados por unidade."],
+        "es": ["Mapeamos cada aprobación y movimiento de inventario con el equipo de cada unidad.", "Diseñamos el modelo de datos compartido y la matriz de permisos antes de cualquier pantalla.", "Lanzamos compras primero, luego inventario y finanzas, migrando los datos por unidad."]
+      },
+      "scope": {
+        "en": ["Discovery", "Architecture", "UX/UI", "Backend & APIs", "Data migration", "Support"],
+        "pt-BR": ["Descoberta", "Arquitetura", "UX/UI", "Backend e APIs", "Migração de dados", "Suporte"],
+        "es": ["Descubrimiento", "Arquitectura", "UX/UI", "Backend y APIs", "Migración de datos", "Soporte"]
+      },
+      "technologies": ["TypeScript", "Next.js", "NestJS", "PostgreSQL", "Redis", "Docker", "AWS"],
+      "preview": {
+        "image": "/projects/atlas-enterprise-platform.svg",
+        "alt": {
+          "en": "Atlas dashboard with approvals queue, stock levels and finance overview.",
+          "pt-BR": "Painel do Atlas com fila de aprovações, níveis de estoque e visão financeira.",
+          "es": "Panel de Atlas con cola de aprobaciones, niveles de inventario y visión financiera."
+        }
+      },
+      "outcomes": { "en": [], "pt-BR": [], "es": [] },
+      "links": { "live": null, "caseStudy": null }
+    },
+    {
+      "slug": "habitar-real-estate-platform",
+      "sample": true,
+      "year": "2024",
+      "client": { "name": "Real estate network (confidential)", "confidential": true },
+      "name": {
+        "en": "Habitar — Real Estate Operations Platform",
+        "pt-BR": "Habitar — Plataforma de Operações Imobiliárias",
+        "es": "Habitar — Plataforma de Operaciones Inmobiliarias"
+      },
+      "industry": { "en": "Real estate", "pt-BR": "Mercado imobiliário", "es": "Sector inmobiliario" },
+      "summary": {
+        "en": "Listings, leads and contracts in one place for agents, owners and back office.",
+        "pt-BR": "Imóveis, leads e contratos em um só lugar para corretores, proprietários e backoffice.",
+        "es": "Propiedades, leads y contratos en un solo lugar para agentes, propietarios y backoffice."
+      },
+      "challenge": {
+        "en": "Listings were published by hand on several portals, leads arrived by e-mail and WhatsApp without an owner, and rental contracts were tracked in folders.",
+        "pt-BR": "Os imóveis eram publicados à mão em vários portais, os leads chegavam por e-mail e WhatsApp sem responsável e os contratos de locação eram controlados em pastas.",
+        "es": "Las propiedades se publicaban a mano en varios portales, los leads llegaban por correo y WhatsApp sin responsable y los contratos de alquiler se controlaban en carpetas."
+      },
+      "solution": {
+        "en": "A platform with a geo-searchable property catalogue, automatic syndication to listing portals, a lead pipeline with assignment rules and a digital contract workflow with e-signature.",
+        "pt-BR": "Uma plataforma com catálogo de imóveis com busca geográfica, publicação automática nos portais, funil de leads com regras de distribuição e fluxo digital de contratos com assinatura eletrônica.",
+        "es": "Una plataforma con catálogo de propiedades con búsqueda geográfica, publicación automática en portales, embudo de leads con reglas de asignación y flujo digital de contratos con firma electrónica."
+      },
+      "engineering": {
+        "en": ["Geospatial search with PostGIS", "Portal syndication via XML/REST feeds", "Lead routing rules engine"],
+        "pt-BR": ["Busca geoespacial com PostGIS", "Publicação em portais via feeds XML/REST", "Motor de regras para distribuição de leads"],
+        "es": ["Búsqueda geoespacial con PostGIS", "Publicación en portales vía feeds XML/REST", "Motor de reglas para asignación de leads"]
+      },
+      "approach": {
+        "en": ["Followed a listing from intake to signed contract with agents and back office.", "Defined one property model that every portal feed could be generated from.", "Rolled out branch by branch with training for each team."],
+        "pt-BR": ["Acompanhamos um imóvel da captação ao contrato assinado com corretores e backoffice.", "Definimos um único modelo de imóvel do qual todos os feeds de portais são gerados.", "Implantamos filial por filial, com treinamento para cada equipe."],
+        "es": ["Seguimos una propiedad desde la captación hasta el contrato firmado con agentes y backoffice.", "Definimos un único modelo de propiedad del que se generan todos los feeds de portales.", "Implantamos sucursal por sucursal, con capacitación para cada equipo."]
+      },
+      "scope": {
+        "en": ["Product strategy", "UX/UI", "Web platform", "Integrations", "Rollout"],
+        "pt-BR": ["Estratégia de produto", "UX/UI", "Plataforma web", "Integrações", "Implantação"],
+        "es": ["Estrategia de producto", "UX/UI", "Plataforma web", "Integraciones", "Implantación"]
+      },
+      "technologies": ["React", "Next.js", "Python", "FastAPI", "PostgreSQL", "PostGIS", "Mapbox", "AWS S3"],
+      "preview": {
+        "image": "/projects/habitar-real-estate-platform.svg",
+        "alt": {
+          "en": "Habitar map search with property pins and listing cards.",
+          "pt-BR": "Busca no mapa do Habitar com marcadores de imóveis e cards de anúncios.",
+          "es": "Búsqueda en mapa de Habitar con marcadores de propiedades y fichas de anuncios."
+        }
+      },
+      "outcomes": { "en": [], "pt-BR": [], "es": [] },
+      "links": { "live": null, "caseStudy": null }
+    },
+    {
+      "slug": "memoria-funeral-management",
+      "sample": true,
+      "year": "2024",
+      "client": { "name": "Funeral services group (confidential)", "confidential": true },
+      "name": {
+        "en": "Memoria — Funeral Services Management System",
+        "pt-BR": "Memoria — Sistema de Gestão para Serviços Funerários",
+        "es": "Memoria — Sistema de Gestión para Servicios Funerarios"
+      },
+      "industry": { "en": "Funeral services", "pt-BR": "Serviços funerários", "es": "Servicios funerarios" },
+      "summary": {
+        "en": "Cases, ceremonies, products and family communication handled with care and precision.",
+        "pt-BR": "Atendimentos, cerimônias, produtos e comunicação com as famílias tratados com cuidado e precisão.",
+        "es": "Servicios, ceremonias, productos y comunicación con las familias gestionados con cuidado y precisión."
+      },
+      "challenge": {
+        "en": "Teams coordinated ceremonies, chapels, vehicles and documents by phone and paper, under time pressure and at a sensitive moment for families. Funeral plan contracts were billed manually.",
+        "pt-BR": "As equipes coordenavam cerimônias, salas, veículos e documentos por telefone e papel, sob pressão de tempo e num momento delicado para as famílias. Os planos funerários eram cobrados manualmente.",
+        "es": "Los equipos coordinaban ceremonias, salas, vehículos y documentos por teléfono y papel, con presión de tiempo y en un momento delicado para las familias. Los planes funerarios se cobraban manualmente."
+      },
+      "solution": {
+        "en": "A management system with case intake, a shared schedule for chapels, staff and vehicles, document generation, product and inventory control, recurring billing for funeral plans and discreet status updates for families.",
+        "pt-BR": "Um sistema de gestão com abertura de atendimento, agenda compartilhada de salas, equipe e veículos, geração de documentos, controle de produtos e estoque, cobrança recorrente dos planos e atualizações discretas para as famílias.",
+        "es": "Un sistema de gestión con apertura de servicios, agenda compartida de salas, personal y vehículos, generación de documentos, control de productos e inventario, cobro recurrente de planes y actualizaciones discretas para las familias."
+      },
+      "engineering": {
+        "en": ["Conflict-free resource scheduling", "Template-based document generation (PDF)", "Recurring billing with payment gateway webhooks"],
+        "pt-BR": ["Agendamento de recursos sem conflitos", "Geração de documentos a partir de modelos (PDF)", "Cobrança recorrente com webhooks do gateway de pagamento"],
+        "es": ["Programación de recursos sin conflictos", "Generación de documentos a partir de plantillas (PDF)", "Cobro recurrente con webhooks de la pasarela de pago"]
+      },
+      "approach": {
+        "en": ["Shadowed the 24/7 intake team to understand each step and its urgency.", "Designed calm, low-friction screens for high-pressure situations.", "Migrated active plans and launched with an on-call support window."],
+        "pt-BR": ["Acompanhamos a equipe de plantão 24h para entender cada etapa e sua urgência.", "Desenhamos telas calmas e com pouco atrito para situações de alta pressão.", "Migramos os planos ativos e lançamos com uma janela de suporte de plantão."],
+        "es": ["Acompañamos al equipo de guardia 24 h para entender cada paso y su urgencia.", "Diseñamos pantallas tranquilas y con poca fricción para situaciones de alta presión.", "Migramos los planes activos y lanzamos con una ventana de soporte de guardia."]
+      },
+      "scope": {
+        "en": ["Process mapping", "UX/UI", "Web application", "Billing integration", "Data migration"],
+        "pt-BR": ["Mapeamento de processos", "UX/UI", "Aplicação web", "Integração de cobrança", "Migração de dados"],
+        "es": ["Mapeo de procesos", "UX/UI", "Aplicación web", "Integración de cobros", "Migración de datos"]
+      },
+      "technologies": ["TypeScript", "Next.js", "Node.js", "Prisma", "PostgreSQL", "WhatsApp Business API", "Azure"],
+      "preview": {
+        "image": "/projects/memoria-funeral-management.svg",
+        "alt": {
+          "en": "Memoria weekly schedule of chapels and ceremonies with the active cases list.",
+          "pt-BR": "Agenda semanal de salas e cerimônias do Memoria com a lista de atendimentos ativos.",
+          "es": "Agenda semanal de salas y ceremonias de Memoria con la lista de servicios activos."
+        }
+      },
+      "outcomes": { "en": [], "pt-BR": [], "es": [] },
+      "links": { "live": null, "caseStudy": null }
+    },
+    {
+      "slug": "flowdesk-internal-automation",
+      "sample": true,
+      "year": "2025",
+      "client": { "name": "Logistics company (confidential)", "confidential": true },
+      "name": {
+        "en": "Flowdesk — Internal Automation Suite",
+        "pt-BR": "Flowdesk — Suíte de Automação Interna",
+        "es": "Flowdesk — Suite de Automatización Interna"
+      },
+      "industry": { "en": "Logistics · Back office", "pt-BR": "Logística · Backoffice", "es": "Logística · Backoffice" },
+      "summary": {
+        "en": "Back-office routines turned into monitored, auditable automations.",
+        "pt-BR": "Rotinas de backoffice transformadas em automações monitoradas e auditáveis.",
+        "es": "Rutinas de backoffice convertidas en automatizaciones monitorizadas y auditables."
+      },
+      "challenge": {
+        "en": "Finance and operations spent most of their week copying data between the TMS, e-mail and spreadsheets to reconcile freight invoices and chase approvals.",
+        "pt-BR": "Finanças e operações passavam boa parte da semana copiando dados entre o TMS, e-mails e planilhas para conciliar faturas de frete e cobrar aprovações.",
+        "es": "Finanzas y operaciones pasaban gran parte de la semana copiando datos entre el TMS, el correo y hojas de cálculo para conciliar facturas de flete y perseguir aprobaciones."
+      },
+      "solution": {
+        "en": "A suite of automations that reads incoming invoices, matches them against shipments, routes exceptions to the right person and publishes a daily operations report — all with logs and retries.",
+        "pt-BR": "Uma suíte de automações que lê as faturas recebidas, cruza com os embarques, encaminha exceções para a pessoa certa e publica um relatório diário de operações — tudo com logs e reprocessamento.",
+        "es": "Una suite de automatizaciones que lee las facturas recibidas, las cruza con los envíos, deriva excepciones a la persona correcta y publica un informe diario de operaciones, todo con registros y reintentos."
+      },
+      "engineering": {
+        "en": ["Document parsing with validation rules", "Idempotent jobs with retries and alerts", "Microsoft 365 integration via Graph API"],
+        "pt-BR": ["Leitura de documentos com regras de validação", "Jobs idempotentes com reprocessamento e alertas", "Integração com Microsoft 365 via Graph API"],
+        "es": ["Lectura de documentos con reglas de validación", "Jobs idempotentes con reintentos y alertas", "Integración con Microsoft 365 vía Graph API"]
+      },
+      "approach": {
+        "en": ["Measured where the team's hours actually went before automating anything.", "Started with the highest-volume routine and kept a human in the loop for exceptions.", "Added monitoring so every run is visible and recoverable."],
+        "pt-BR": ["Medimos para onde iam as horas da equipe antes de automatizar qualquer coisa.", "Começamos pela rotina de maior volume, mantendo uma pessoa no circuito para as exceções.", "Adicionamos monitoramento para que cada execução seja visível e recuperável."],
+        "es": ["Medimos a dónde iban las horas del equipo antes de automatizar nada.", "Empezamos por la rutina de mayor volumen, manteniendo a una persona en el circuito para las excepciones.", "Añadimos monitorización para que cada ejecución sea visible y recuperable."]
+      },
+      "scope": {
+        "en": ["Process analysis", "Automation engineering", "Integrations", "Monitoring"],
+        "pt-BR": ["Análise de processos", "Engenharia de automação", "Integrações", "Monitoramento"],
+        "es": ["Análisis de procesos", "Ingeniería de automatización", "Integraciones", "Monitorización"]
+      },
+      "technologies": ["Python", "n8n", "PostgreSQL", "Microsoft Graph API", "Power BI", "Docker"],
+      "preview": {
+        "image": "/projects/flowdesk-internal-automation.svg",
+        "alt": {
+          "en": "Flowdesk automation flow with connected steps and the latest run log.",
+          "pt-BR": "Fluxo de automação do Flowdesk com etapas conectadas e o log das últimas execuções.",
+          "es": "Flujo de automatización de Flowdesk con pasos conectados y el registro de las últimas ejecuciones."
+        }
+      },
+      "outcomes": { "en": [], "pt-BR": [], "es": [] },
+      "links": { "live": null, "caseStudy": null }
+    },
+    {
+      "slug": "northwind-corporate-website",
+      "sample": true,
+      "year": "2024",
+      "client": { "name": "Engineering consultancy (confidential)", "confidential": true },
+      "name": {
+        "en": "Northwind — Corporate Website & Digital Platform",
+        "pt-BR": "Northwind — Site Corporativo e Plataforma Digital",
+        "es": "Northwind — Sitio Corporativo y Plataforma Digital"
+      },
+      "industry": { "en": "Corporate · Digital products", "pt-BR": "Corporativo · Produtos digitais", "es": "Corporativo · Productos digitales" },
+      "summary": {
+        "en": "A fast, multilingual corporate site the marketing team can run on its own.",
+        "pt-BR": "Um site corporativo rápido e multilíngue que o marketing consegue gerir sozinho.",
+        "es": "Un sitio corporativo rápido y multilingüe que el equipo de marketing puede gestionar solo."
+      },
+      "challenge": {
+        "en": "An outdated site that only developers could edit, slow on mobile, hard to find in search and unable to support new markets in other languages.",
+        "pt-BR": "Um site desatualizado que só desenvolvedores conseguiam editar, lento no celular, difícil de encontrar nas buscas e sem suporte a novos mercados em outros idiomas.",
+        "es": "Un sitio desactualizado que solo los desarrolladores podían editar, lento en móvil, difícil de encontrar en buscadores y sin soporte para nuevos mercados en otros idiomas."
+      },
+      "solution": {
+        "en": "A headless architecture with a structured CMS, a component-based design system, multilingual routing and performance budgets enforced in CI.",
+        "pt-BR": "Uma arquitetura headless com CMS estruturado, design system baseado em componentes, rotas multilíngues e orçamentos de performance verificados no CI.",
+        "es": "Una arquitectura headless con CMS estructurado, design system basado en componentes, rutas multilingües y presupuestos de rendimiento verificados en CI."
+      },
+      "engineering": {
+        "en": ["Headless CMS with typed content models", "Static generation with on-demand revalidation", "Accessibility and performance checks in CI"],
+        "pt-BR": ["CMS headless com modelos de conteúdo tipados", "Geração estática com revalidação sob demanda", "Verificações de acessibilidade e performance no CI"],
+        "es": ["CMS headless con modelos de contenido tipados", "Generación estática con revalidación bajo demanda", "Verificaciones de accesibilidad y rendimiento en CI"]
+      },
+      "approach": {
+        "en": ["Audited content, search visibility and performance of the old site.", "Built the design system and content models together with the marketing team.", "Migrated content language by language with redirects preserved."],
+        "pt-BR": ["Auditamos conteúdo, visibilidade em buscas e performance do site antigo.", "Construímos o design system e os modelos de conteúdo junto com o marketing.", "Migramos o conteúdo idioma por idioma, preservando os redirecionamentos."],
+        "es": ["Auditamos el contenido, la visibilidad en buscadores y el rendimiento del sitio anterior.", "Construimos el design system y los modelos de contenido junto con marketing.", "Migramos el contenido idioma por idioma, conservando las redirecciones."]
+      },
+      "scope": {
+        "en": ["Content strategy", "Design system", "Front-end", "CMS", "SEO"],
+        "pt-BR": ["Estratégia de conteúdo", "Design system", "Front-end", "CMS", "SEO"],
+        "es": ["Estrategia de contenido", "Design system", "Front-end", "CMS", "SEO"]
+      },
+      "technologies": ["Next.js", "TypeScript", "Sanity", "Tailwind CSS", "Vercel"],
+      "preview": {
+        "image": "/projects/northwind-corporate-website.svg",
+        "alt": {
+          "en": "Northwind corporate website home page in desktop and mobile layouts.",
+          "pt-BR": "Página inicial do site corporativo Northwind em layout desktop e mobile.",
+          "es": "Página de inicio del sitio corporativo Northwind en diseño de escritorio y móvil."
+        }
+      },
+      "outcomes": { "en": [], "pt-BR": [], "es": [] },
+      "links": { "live": null, "caseStudy": null }
+    }
+  ]
+}

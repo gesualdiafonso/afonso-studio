@@ -1,0 +1,96 @@
+/* ==========================================================================
+   BUSINESS SOLUTIONS — section-scoped styles (`sol-*`). Dark surface.
+   State attributes set by solutions-experience.tsx:
+     li[data-sol-step][data-active]   active case in the list (desktop)
+     [data-sol-step] --p              0…1 progress of that case
+     .sol-stage[data-phase]           problem | solution (chip + highlight)
+     .sol-diagram[data-visible]       which case diagram is shown
+   ========================================================================== */
+
+/* Stage keeps the diagram inside the viewport height (600 × 460 + chrome) */
+.sol-stage {
+  width: min(100%, calc((100svh - var(--spacing-dock) - 8rem) * 1.25));
+}
+
+/* Step list */
+.sol-step-title {
+  color: var(--color-ink-secondary);
+  transition: color var(--duration-base) var(--ease-standard);
+}
+
+.sol-step[data-active="true"] .sol-step-title,
+.sol-step button:hover .sol-step-title {
+  color: var(--color-ink);
+}
+
+.sol-step-progress::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--color-accent-blue), var(--color-accent-cyan), var(--color-accent-mint));
+  transform: scaleX(var(--p, 0));
+  transform-origin: left center;
+}
+
+.sol-step-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows var(--duration-slow) var(--ease-out-expo),
+    opacity var(--duration-base) var(--ease-standard);
+}
+
+.sol-step-panel > * {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.sol-step[data-active="true"] .sol-step-panel {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.sol-solution dt {
+  color: var(--color-ink-secondary);
+  transition: color var(--duration-base) var(--ease-standard);
+}
+
+.sol-root:has(.sol-stage[data-phase="solution"]) .sol-step[data-active="true"] .sol-solution dt {
+  color: var(--color-accent-cyan);
+}
+
+/* Diagrams: cross-fade between cases */
+.sol-diagram {
+  transition:
+    opacity var(--duration-slow) var(--ease-standard),
+    visibility var(--duration-slow);
+}
+
+.sol-diagram[data-visible="false"] {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Problem / Solution chip */
+.sol-chip-solution {
+  display: none;
+}
+
+.sol-stage[data-phase="solution"] .sol-chip-problem {
+  display: none;
+}
+
+.sol-stage[data-phase="solution"] .sol-chip-solution {
+  display: inline;
+  color: var(--color-accent-cyan);
+}
+
+.sol-chip-dot {
+  background: var(--color-ink-subtle);
+  transition: background-color var(--duration-base) var(--ease-standard);
+}
+
+.sol-stage[data-phase="solution"] .sol-chip-dot {
+  background: var(--color-accent-mint);
+}

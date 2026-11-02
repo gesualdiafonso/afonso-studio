@@ -1,0 +1,56 @@
+/* ==========================================================================
+   PHILOSOPHY — section-scoped styles (namespaced global CSS; CSS Modules
+   are not used in this project, see design-system-decisions).
+   Scroll animations are applied by philosophy-scene.tsx (GSAP). Without JS
+   or with reduced motion, everything below renders in its final state.
+   ========================================================================== */
+
+[data-philo="root"] {
+  /* Editorial headline: 40px (360) → 96px (1440) */
+  --philo-display: clamp(2.5rem, 1.3333rem + 5.1852vw, 6rem);
+}
+
+.philo-title {
+  font-size: var(--philo-display);
+}
+
+.philo-word {
+  display: inline-block;
+  position: relative;
+  isolation: isolate; /* keeps the underline behind the glyphs */
+  will-change: opacity, transform;
+}
+
+/* Accent underline drawn under highlighted words (circuit trace). */
+.philo-underline {
+  position: absolute;
+  left: 0;
+  right: 0.12em;
+  bottom: 0.02em;
+  height: 0.06em;
+  min-height: 3px;
+  background: linear-gradient(90deg, var(--color-accent-blue), var(--color-accent-cyan) 70%, var(--color-accent-mint));
+  border-radius: 9999px;
+  transform-origin: left center;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+/* Huge outlined index numeral (background layer). */
+.philo-numeral {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(12rem, 6rem + 26vw, 34rem);
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-line);
+  user-select: none;
+}
+
+.philo-dots {
+  background-image: radial-gradient(var(--color-line-strong) 1px, transparent 1.2px);
+  background-size: 22px 22px;
+  opacity: 0.35;
+  mask-image: radial-gradient(closest-side, #000 40%, transparent);
+}

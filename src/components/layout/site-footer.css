@@ -1,0 +1,55 @@
+/* SITE FOOTER (`footer-*`, `back-to-top*`) — Deep Navy. */
+.site-footer {
+  background-color: var(--color-navy-950);
+}
+
+.footer-link {
+  color: var(--color-ink-secondary);
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.footer-link:hover,
+.footer-link[aria-current="true"] {
+  color: var(--color-ink);
+}
+
+.footer-link-index {
+  color: var(--color-accent-cyan);
+}
+
+.footer-circuit path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+.back-to-top-ring {
+  stroke-dasharray: 1;
+  stroke-dashoffset: calc(1 - var(--progress, 0));
+}
+
+.back-to-top-disc {
+  background: var(--color-navy-900);
+  transition:
+    background-color var(--duration-base) var(--ease-standard),
+    transform var(--duration-slow) var(--ease-out-back);
+}
+
+.back-to-top:hover .back-to-top-disc {
+  background: var(--color-navy-800);
+  transform: translateY(-3px);
+}
+
+.back-to-top-arrow {
+  transition: transform var(--duration-slow) var(--ease-out-back);
+}
+
+.back-to-top:hover .back-to-top-arrow {
+  transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top:hover .back-to-top-disc,
+  .back-to-top:hover .back-to-top-arrow {
+    transform: none;
+  }
+}

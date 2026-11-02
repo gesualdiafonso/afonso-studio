@@ -1,0 +1,198 @@
+/* ==========================================================================
+   HERO — local intro animations (CSS only: run on first paint, no JS needed,
+   no hydration wait for the LCP headline).
+   Elements that GSAP ScrollTrigger will move later carry `data-hero-layer`
+   on an OUTER wrapper; these intro animations live on INNER elements, so the
+   two systems never fight over the same transform.
+   Plain global CSS with a `hero-` namespace (the project's Turbopack CSS rule
+   compiles *.module.css as global, so CSS Modules are not used).
+   Delays: set `--d` inline (e.g. style={{ "--d": "240ms" }}).
+   ========================================================================== */
+
+/* Hero headline size: same 136px desktop ceiling as --text-display, but a
+   more compact 42px floor so "WHAT'S NEXT." fits one line on phones. */
+[data-hero="root"] {
+  --hero-display: clamp(2.625rem, 0.6667rem + 8.7037vw, 8.5rem);
+}
+
+.hero-title {
+  font-size: var(--hero-display);
+}
+
+/* 1. Logo reveal ---------------------------------------------------------- */
+.hero-logo {
+  animation: hero-logo-in var(--duration-cinematic) var(--ease-out-expo) both;
+  animation-delay: var(--d, 0ms);
+}
+
+@keyframes hero-logo-in {
+  from {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: none;
+  }
+}
+
+/* 2. Headline word-by-word ------------------------------------------------ */
+.hero-word-mask {
+  display: inline-block;
+  overflow: clip;
+  /* room for descenders / accents inside the mask */
+  padding-block: 0.06em 0.1em;
+  margin-block: -0.06em -0.1em;
+  vertical-align: top;
+}
+
+.hero-word {
+  display: inline-block;
+  animation: hero-word-in 1000ms var(--ease-out-expo) both;
+  animation-delay: var(--d, 0ms);
+}
+
+@keyframes hero-word-in {
+  from {
+    transform: translate3d(0, 108%, 0) rotate(4deg);
+    transform-origin: 0 100%;
+  }
+  to {
+    transform: none;
+  }
+}
+
+/* 3 & 4. Supporting text / CTAs / details --------------------------------- */
+.hero-fade-up {
+  animation: hero-fade-up var(--duration-slow) var(--ease-out-expo) both;
+  animation-delay: var(--d, 0ms);
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Visual entrance ---------------------------------------------------------- */
+.hero-visual-in {
+  animation: hero-visual-in 1600ms var(--ease-out-expo) both;
+  animation-delay: var(--d, 0ms);
+}
+
+@keyframes hero-visual-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9) rotate(-4deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* 5. A-CORE float (2D fallback; the 3D version floats in useFrame) --------- */
+.hero-float {
+  animation: hero-float 7s var(--ease-standard) infinite alternate;
+}
+
+@keyframes hero-float {
+  from {
+    transform: translate3d(0, -6px, 0) rotate(-1.5deg);
+  }
+  to {
+    transform: translate3d(0, 10px, 0) rotate(1.5deg);
+  }
+}
+
+.hero-orbit {
+  animation: hero-orbit 80s linear infinite;
+}
+
+@keyframes hero-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Circuit decoration: draw-on ------------------------------------------- */
+.hero-trace {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: hero-draw 1800ms var(--ease-in-out-quart) forwards;
+  animation-delay: var(--d, 0ms);
+}
+
+@keyframes hero-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.hero-node {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hero-node-in var(--duration-base) var(--ease-out-back) both;
+  animation-delay: var(--d, 0ms);
+}
+
+@keyframes hero-node-in {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* 6. Scroll indicator ------------------------------------------------------ */
+.hero-scroll-dot {
+  animation: hero-scroll-dot 2.4s var(--ease-in-out-quart) infinite;
+}
+
+@keyframes hero-scroll-dot {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(var(--travel, 40px));
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-float,
+  .hero-orbit,
+  .hero-scroll-dot {
+    animation: none;
+  }
+
+  .hero-word,
+  .hero-fade-up,
+  .hero-logo,
+  .hero-visual-in,
+  .hero-node {
+    animation: none;
+  }
+
+  .hero-trace {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}

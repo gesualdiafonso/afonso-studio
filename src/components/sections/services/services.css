@@ -1,0 +1,99 @@
+/* ==========================================================================
+   SERVICES — section-scoped styles (namespaced global CSS, `svc-*`).
+   Card state lives in data attributes set by services-list.tsx:
+     article[data-active="true"]          → expanded card
+     section[data-services-active="N"]    → module legend highlight
+   ========================================================================== */
+
+[data-services="root"] {
+  /* Size of the sticky A-CORE anchor on desktop */
+  --svc-visual: min(36vw, 62svh);
+}
+
+/* Large outlined number → filled brand blue when active */
+.svc-number {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(3.5rem, 2.5rem + 4.4vw, 7.5rem);
+  line-height: 0.82;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+  color: transparent;
+  -webkit-text-stroke: 1.25px var(--color-line-strong);
+  transition:
+    color var(--duration-base) var(--ease-out-expo),
+    -webkit-text-stroke-color var(--duration-base) var(--ease-out-expo);
+}
+
+[data-active="true"] .svc-number {
+  color: var(--color-brand-blue);
+  -webkit-text-stroke-color: transparent;
+}
+
+/* Expandable panel: animates height without measuring (0fr → 1fr) */
+.svc-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows var(--duration-slow) var(--ease-out-expo),
+    opacity var(--duration-base) var(--ease-standard);
+}
+
+.svc-panel > * {
+  min-height: 0;
+  overflow: hidden;
+}
+
+[data-active="true"] .svc-panel {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+/* Accent bar on the active card */
+.svc-bar {
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform var(--duration-slow) var(--ease-out-expo);
+}
+
+[data-active="true"] .svc-bar {
+  transform: scaleY(1);
+}
+
+/* Module map: highlighted segment fades in */
+.svc-map-segment {
+  transition: fill var(--duration-base) var(--ease-standard), stroke var(--duration-base) var(--ease-standard);
+}
+
+/* Legend under the A-CORE follows the active service */
+.svc-legend-item {
+  color: var(--color-ink-secondary); /* 5.44:1 on white; active → ink */
+  transition: color var(--duration-base) var(--ease-standard);
+}
+
+.svc-legend-item .svc-legend-dot {
+  background: var(--color-line-strong);
+  transition: background-color var(--duration-base) var(--ease-standard), transform var(--duration-base) var(--ease-out-back);
+}
+
+[data-services-active="0"] [data-module-index="0"],
+[data-services-active="1"] [data-module-index="1"],
+[data-services-active="2"] [data-module-index="2"],
+[data-services-active="3"] [data-module-index="3"] {
+  color: var(--color-ink);
+}
+
+[data-services-active="0"] [data-module-index="0"] .svc-legend-dot,
+[data-services-active="1"] [data-module-index="1"] .svc-legend-dot,
+[data-services-active="2"] [data-module-index="2"] .svc-legend-dot,
+[data-services-active="3"] [data-module-index="3"] .svc-legend-dot {
+  background: var(--color-brand-blue);
+  transform: scale(1.35);
+}
+
+/* White panel surface (continues the Philosophy fade). Higher specificity
+   than the generic [data-surface] rule in tokens.css. */
+section[data-services="root"] {
+  background-color: var(--color-panel);
+}

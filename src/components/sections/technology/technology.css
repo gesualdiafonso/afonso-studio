@@ -1,0 +1,235 @@
+/* ==========================================================================
+   TECHNOLOGY — section-scoped styles (`tech-*`). Deep Navy surface.
+   ========================================================================== */
+
+/* The navy surface is a separate panel so it can open from rounded edges on
+   entry (see technology-scene.tsx) without clipping the section's content. */
+section[data-tech="root"] {
+  background-color: transparent;
+}
+
+.tech-panel {
+  background:
+    radial-gradient(60rem 40rem at 50% 55%, color-mix(in srgb, var(--color-blue-500) 12%, transparent), transparent 70%),
+    var(--color-navy-900);
+}
+
+[data-tone="blue"] {
+  --tone: var(--color-blue-400);
+}
+[data-tone="cyan"] {
+  --tone: var(--color-cyan-500);
+}
+[data-tone="mint"] {
+  --tone: var(--color-mint-500);
+}
+
+/* ── Cards ────────────────────────────────────────────────────────────── */
+.tech-card,
+.tech-principle {
+  border: 1px solid var(--color-navy-700);
+  background: color-mix(in srgb, var(--color-navy-800) 78%, transparent);
+  backdrop-filter: blur(6px);
+  transition:
+    border-color var(--duration-base) var(--ease-standard),
+    transform var(--duration-slow) var(--ease-out-expo),
+    box-shadow var(--duration-slow) var(--ease-out-expo);
+}
+
+.tech-principle {
+  border-style: dashed;
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.tech-card.is-active {
+  border-color: color-mix(in srgb, var(--tone) 70%, transparent);
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--tone) 25%, transparent),
+    0 24px 48px -24px color-mix(in srgb, var(--tone) 45%, transparent);
+}
+
+.tech-card-icon {
+  color: var(--tone, var(--color-accent-cyan));
+  border: 1px solid color-mix(in srgb, var(--tone, var(--color-accent-cyan)) 40%, transparent);
+  background: color-mix(in srgb, var(--tone, var(--color-accent-cyan)) 8%, transparent);
+  transition: background-color var(--duration-base) var(--ease-standard);
+}
+
+.tech-card.is-active .tech-card-icon {
+  background: color-mix(in srgb, var(--tone) 18%, transparent);
+}
+
+.tech-tiles {
+  grid-template-columns: repeat(auto-fill, minmax(8.75rem, 1fr));
+  align-content: start;
+}
+
+@media (min-width: 64rem) {
+  .tech-tiles[data-layout="wide"] {
+    grid-template-columns: repeat(4, 1fr);
+    align-content: stretch;
+  }
+}
+
+/* ── Technology "element" tiles ───────────────────────────────────────── */
+.tech-item {
+  transition: background-color var(--duration-fast, 180ms) var(--ease-standard);
+}
+
+.tech-tile {
+  border: 1px solid color-mix(in srgb, var(--tone) 45%, transparent);
+  background: var(--color-navy-900);
+  color: var(--tone);
+  transition:
+    background-color var(--duration-base) var(--ease-standard),
+    color var(--duration-base) var(--ease-standard),
+    transform var(--duration-slow) var(--ease-out-back);
+}
+
+.tech-tile-num {
+  color: var(--color-navy-300);
+}
+
+.tech-item:hover,
+.tech-item[data-match] {
+  background: color-mix(in srgb, var(--color-navy-700) 70%, transparent);
+}
+
+.tech-item:hover .tech-tile,
+.tech-item[data-match] .tech-tile {
+  background: var(--tone);
+  color: var(--color-navy-900);
+  transform: rotate(-6deg) scale(1.06);
+}
+
+.tech-item:hover .tech-tile-num,
+.tech-item[data-match] .tech-tile-num {
+  color: var(--color-navy-800);
+}
+
+/* ── Connection terminals ─────────────────────────────────────────────── */
+.tech-terminal {
+  display: none;
+  translate: -50% -50%;
+  background: var(--color-navy-900);
+  border: 2px solid color-mix(in srgb, var(--tone) 60%, transparent);
+  transition:
+    background-color var(--duration-base) var(--ease-standard),
+    scale var(--duration-base) var(--ease-out-back);
+}
+
+@media (min-width: 64rem) {
+  .tech-terminal {
+    display: block;
+  }
+}
+
+.tech-card.is-active .tech-terminal {
+  background: var(--tone);
+  scale: 1.4;
+}
+
+/* ── Orbital connections ──────────────────────────────────────────────── */
+.tech-links {
+  overflow: visible;
+}
+
+/* --tech-draw (0…1) is scrubbed by the scene: the lines grow out of the hub. */
+.tech-link {
+  stroke-dasharray: 1;
+  stroke-dashoffset: calc(1 - var(--tech-draw, 1));
+  stroke: var(--color-navy-300);
+  stroke-opacity: 0.4;
+  stroke-width: 1.25;
+  transition:
+    stroke var(--duration-base) var(--ease-standard),
+    stroke-opacity var(--duration-base) var(--ease-standard);
+}
+
+[data-hovering="true"] .tech-link {
+  stroke-opacity: 0.18;
+}
+
+[data-active="true"] > .tech-link {
+  stroke: var(--tone);
+  stroke-opacity: 0.9;
+}
+
+.tech-cross {
+  opacity: var(--tech-draw, 1);
+  stroke: var(--color-accent-mint);
+  stroke-width: 1.25;
+  stroke-dasharray: 0.01 0.012;
+  stroke-opacity: 0.22;
+  transition: stroke-opacity var(--duration-base) var(--ease-standard);
+}
+
+[data-active="true"] > .tech-cross {
+  stroke-opacity: 0.95;
+}
+
+.tech-link-pulse {
+  stroke: var(--tone, var(--color-accent-mint));
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 0.05 0.95;
+  stroke-dashoffset: 1;
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+[data-active="true"] > .tech-link-pulse {
+  opacity: 1;
+  animation: tech-pulse 1.6s linear infinite;
+}
+
+@keyframes tech-pulse {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ── Hub orbits ───────────────────────────────────────────────────────── */
+.tech-orbit {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  animation: tech-spin 80s linear infinite;
+}
+
+@keyframes tech-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.tech-orbit-node {
+  fill: var(--tone);
+  stroke: var(--color-navy-900);
+  stroke-width: 3;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform var(--duration-base) var(--ease-out-back);
+}
+
+.tech-grid:has([data-tech-wrap="frontend"]:hover) [data-tech-orbit-node="frontend"],
+.tech-grid:has([data-tech-wrap="backend"]:hover) [data-tech-orbit-node="backend"],
+.tech-grid:has([data-tech-wrap="databases"]:hover) [data-tech-orbit-node="databases"],
+.tech-grid:has([data-tech-wrap="infrastructure"]:hover) [data-tech-orbit-node="infrastructure"],
+.tech-grid:has([data-tech-wrap="automation"]:hover) [data-tech-orbit-node="automation"],
+.tech-grid:has([data-tech-wrap="design"]:hover) [data-tech-orbit-node="design"] {
+  transform: scale(1.8);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-orbit,
+  [data-active="true"] > .tech-link-pulse {
+    animation: none;
+  }
+  .tech-card.is-active,
+  .tech-item:hover .tech-tile,
+  .tech-item[data-match] .tech-tile {
+    transform: none;
+  }
+}
