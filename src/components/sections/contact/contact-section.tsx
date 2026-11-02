@@ -19,7 +19,7 @@ export interface ContactSectionProps {
  * SECTION 09 — CONTACT / LET'S BUILD SOMETHING (white panel)
  *   headline (staggered) + supporting text + Start a project CTA
  *   A-CORE final scene + direct channels | contact form
- * The form posts to /api/contact (Resend). Without credentials it is
+ * The form posts to /api/contact (Gmail via Nodemailer). Without credentials it is
  * marked "integration pending" and composes an e-mail instead.
  */
 export function ContactSection({ locale = defaultLocale }: ContactSectionProps) {

@@ -25,7 +25,7 @@ export interface TechnologySceneProps {
 export function TechnologyScene({ id, surface, labelledBy, className, children }: TechnologySceneProps) {
   const root = useRef<HTMLElement>(null);
 
-  useScrollTimeline(root, ({ gsap, scope, isDesktop, reducedMotion }) => {
+  useScrollTimeline(root, ({ gsap, ScrollTrigger, scope, isDesktop, reducedMotion }) => {
     const q = gsap.utils.selector(scope);
     const grid = q(s.grid)[0] as HTMLElement | undefined;
     if (reducedMotion || !grid) return;
@@ -79,13 +79,20 @@ export function TechnologyScene({ id, surface, labelledBy, className, children }
 
     // 3 — orbital connections grow out of the hub
     if (isDesktop) {
+      // Set the CSS variable directly from the trigger's progress (tweening a
+      // custom property with GSAP fails in dev / Strict Mode).
       grid.style.setProperty("--tech-draw", "0");
-      gsap.to(grid, {
-        "--tech-draw": 1,
-        ease: "none",
-        scrollTrigger: { trigger: grid, start: "top 70%", end: "center 55%", scrub: true },
+      const draw = ScrollTrigger.create({
+        trigger: grid,
+        start: "top 70%",
+        end: "center 55%",
+        onUpdate: (self) => grid.style.setProperty("--tech-draw", self.progress.toFixed(4)),
+        onRefresh: (self) => grid.style.setProperty("--tech-draw", self.progress.toFixed(4)),
       });
-      return () => grid.style.removeProperty("--tech-draw");
+      return () => {
+        draw.kill();
+        grid.style.removeProperty("--tech-draw");
+      };
     }
   });
 

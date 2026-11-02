@@ -38,14 +38,23 @@ export function StudioScene({ id, surface, labelledBy, className, children }: St
 
     if (reducedMotion) return () => home.kill();
 
-    // 1 — word-by-word ink fill
+    // 1 — word-by-word ink fill. --w is written straight from the trigger's
+    //     progress (tweening custom properties with GSAP fails in dev / Strict
+    //     Mode). Each word fills over 1 unit, starting 0.5 after the previous.
     const words = q(s.word) as HTMLElement[];
-    gsap.set(words, { "--w": 0 });
-    gsap.to(words, {
-      "--w": 1,
-      ease: "none",
-      stagger: 0.5,
-      scrollTrigger: { trigger: q(s.statement)[0], start: "top 80%", end: "bottom 45%", scrub: 0.6 },
+    const span = 1 + 0.5 * (words.length - 1);
+    const paint = (p: number) =>
+      words.forEach((word, i) => {
+        const w = Math.min(Math.max(p * span - 0.5 * i, 0), 1);
+        word.style.setProperty("--w", w.toFixed(3));
+      });
+    paint(0);
+    const fill = ScrollTrigger.create({
+      trigger: q(s.statement)[0],
+      start: "top 80%",
+      end: "bottom 45%",
+      onUpdate: (self) => paint(self.progress),
+      onRefresh: (self) => paint(self.progress),
     });
 
     // 2 — subtle background movement
@@ -100,7 +109,11 @@ export function StudioScene({ id, surface, labelledBy, className, children }: St
       { scale: 1, ease: "back.out(2)", stagger: 0.1, scrollTrigger: { trigger: trace, start: "clamp(top 75%)", end: "clamp(bottom 60%)", scrub: true } },
     );
 
-    return () => home.kill();
+    return () => {
+      home.kill();
+      fill.kill();
+      words.forEach((word) => word.style.removeProperty("--w"));
+    };
   });
 
   return (

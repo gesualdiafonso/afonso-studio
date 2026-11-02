@@ -27,8 +27,8 @@ type Status = "idle" | "sending" | "success" | "not_configured" | "rate_limited"
 const FIELDS: ContactField[] = ["name", "email", "company", "projectType", "description"];
 
 /**
- * Contact form — real submission to /api/contact (Resend), never a fake
- * success. If the server is not configured, the form says so clearly and
+ * Contact form — real submission to /api/contact, never a fake
+ * success. /api/contact sends through Gmail (Nodemailer). If the server is not configured, the form says so clearly and
  * opens the visitor's e-mail app with the message composed instead.
  */
 export function ContactForm({ content, configured, fallbackEmail, locale, className }: ContactFormProps) {
