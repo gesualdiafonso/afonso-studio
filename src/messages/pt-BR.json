@@ -4,6 +4,7 @@
     "description": "Projetamos, desenvolvemos e integramos soluções digitais que ajudam empresas a evoluir."
   },
   "navigation": {
+    "goTo": "{label} — ir para a seção",
     "label": "Navegação por seções",
     "intro": "Início",
     "philosophy": "Filosofia",

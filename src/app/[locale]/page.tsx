@@ -7,10 +7,12 @@ import { ServicesSection } from "@/components/sections/services";
 import { SolutionsSection } from "@/components/sections/solutions";
 import { StudioSection } from "@/components/sections/studio";
 import { ContactSection } from "@/components/sections/contact";
+import { NavigationController } from "@/components/layout/navigation";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { getNavigationItems } from "@/config/navigation";
 import { TechnologySection } from "@/components/sections/technology";
 import { WorkSection } from "@/components/sections/work";
-import { defaultLocale, isLocale } from "@/i18n/config";
+import { defaultLocale, getMessages, isLocale } from "@/i18n/config";
 
 /** Anchors the persistent A-CORE travels through, in page order. */
 const ACORE_ANCHORS = ["hero", "philosophy", "services", "process", "technology", "studio", "contact"] as const;
@@ -39,6 +41,8 @@ export default async function Home() {
       <SiteFooter locale={locale} />
       {/* Shared 3D layer — after the sections so it paints above their backgrounds */}
       <ACoreStage anchors={ACORE_ANCHORS} />
+      {/* Cinematic bottom navigation (fixed, z-dock) */}
+      <NavigationController navigationItems={getNavigationItems(locale)} label={getMessages(locale).navigation.label} />
     </>
   );
 }

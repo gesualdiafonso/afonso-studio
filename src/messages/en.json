@@ -4,6 +4,7 @@
     "description": "We design, build and integrate digital solutions that help businesses evolve."
   },
   "navigation": {
+    "goTo": "{label} — go to section",
     "label": "Section navigation",
     "intro": "Intro",
     "philosophy": "Philosophy",

@@ -59,3 +59,23 @@ export const motionPresets = {
 } as const;
 
 export type MotionPreset = keyof typeof motionPresets;
+
+/**
+ * Bottom navigation dock — sizes and motion in one place.
+ * Widths in rem (converted to px at runtime); `md` applies from 48rem.
+ */
+export const navigationMotion = {
+  size: {
+    compact: { base: 2.75, md: 3 },
+    expanded: { base: 8.75, md: 10.5 },
+  },
+  /** Card width + active indicator. */
+  width: { duration: duration.slow, ease: ease["out-expo"] },
+  indicator: { duration: duration.slow, ease: ease["out-expo"] },
+  label: { duration: duration.base, ease: ease["out-expo"], delay: duration.instant },
+  hover: { duration: duration.fast, ease: ease.standard },
+  /** Magnetic pull on desktop pointers (px at the card edge). */
+  magnet: 3,
+  /** Unlocks the active state if the scroll engine never reports completion. */
+  navigationTimeoutMs: 3400,
+} as const;
