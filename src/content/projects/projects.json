@@ -2,273 +2,1114 @@
   "$schema": "./projects.schema.json",
   "projects": [
     {
-      "slug": "atlas-enterprise-platform",
-      "sample": true,
-      "year": "2025",
-      "client": { "name": "Industrial group (confidential)", "confidential": true },
+      "slug": "funeraria-systems-saas",
+      "sample": false,
+      "year": "2026",
+      "client": {
+        "name": "Funeraria Systems",
+        "confidential": false
+      },
       "name": {
-        "en": "Atlas — Enterprise Management Platform",
-        "pt-BR": "Atlas — Plataforma de Gestão Empresarial",
-        "es": "Atlas — Plataforma de Gestión Empresarial"
+        "en": "Funeraria Systems — SaaS Billing & Client Management",
+        "pt-BR": "Funeraria Systems — SaaS de Gestão de Clientes e Faturamento",
+        "es": "Funeraria Systems — SaaS de Gestión de Clientes y Facturación"
       },
       "industry": {
-        "en": "Manufacturing · Enterprise operations",
-        "pt-BR": "Indústria · Operações corporativas",
-        "es": "Industria · Operaciones corporativas"
+        "en": "Enterprise software · Funeral services · SaaS",
+        "pt-BR": "Software empresarial · Serviços funerários · SaaS",
+        "es": "Software empresarial · Servicios funerarios · SaaS"
       },
       "summary": {
-        "en": "One platform for finance, procurement and inventory across five business units.",
-        "pt-BR": "Uma plataforma para finanças, compras e estoque em cinco unidades de negócio.",
-        "es": "Una plataforma para finanzas, compras e inventario en cinco unidades de negocio."
+        "en": "A SaaS-oriented business management platform centralizing customer records, dependents, service plans, subscriptions, recurring billing and payment operations through an integrated web application.",
+        "pt-BR": "Uma plataforma de gestão empresarial orientada a SaaS que centraliza cadastros de clientes, dependentes, planos de serviços, assinaturas, faturamento recorrente e operações financeiras em uma aplicação web integrada.",
+        "es": "Una plataforma de gestión empresarial orientada a SaaS que centraliza registros de clientes, dependientes, planes de servicios, suscripciones, facturación recurrente y operaciones financieras en una aplicación web integrada."
       },
       "challenge": {
-        "en": "Each unit ran its own spreadsheets and legacy tools. Purchase approvals took days, stock levels were never reliable and month-end closing depended on manual consolidation.",
-        "pt-BR": "Cada unidade usava suas próprias planilhas e sistemas legados. Aprovações de compra levavam dias, o estoque nunca era confiável e o fechamento do mês dependia de consolidação manual.",
-        "es": "Cada unidad usaba sus propias hojas de cálculo y sistemas heredados. Las aprobaciones de compra tardaban días, el inventario nunca era confiable y el cierre mensual dependía de consolidación manual."
+        "en": "Centralize administrative and financial operations in a scalable digital platform, reducing manual processes and enabling structured customer management, recurring billing, payment tracking and automated business workflows.",
+        "pt-BR": "Centralizar as operações administrativas e financeiras em uma plataforma digital escalável, reduzindo processos manuais e permitindo uma gestão estruturada de clientes, faturamento recorrente, acompanhamento de pagamentos e automação de fluxos empresariais.",
+        "es": "Centralizar las operaciones administrativas y financieras en una plataforma digital escalable, reduciendo procesos manuales y permitiendo una gestión estructurada de clientes, facturación recurrente, seguimiento de pagos y automatización de procesos empresariales."
       },
       "solution": {
-        "en": "A modular web platform with a single data model, role-based access per unit, approval workflows and integrations with the existing accounting system — delivered module by module so operations never stopped.",
-        "pt-BR": "Uma plataforma web modular com um único modelo de dados, acesso por perfil em cada unidade, fluxos de aprovação e integração com o sistema contábil existente — entregue módulo a módulo, sem parar a operação.",
-        "es": "Una plataforma web modular con un único modelo de datos, acceso por rol en cada unidad, flujos de aprobación e integración con el sistema contable existente, entregada módulo a módulo sin detener la operación."
+        "en": "A modular web-based management platform combining an administrative dashboard, customer management, dependent registration, subscription administration, financial operations, document generation and external service integrations.",
+        "pt-BR": "Uma plataforma modular de gestão web que combina painel administrativo, gerenciamento de clientes, cadastro de dependentes, administração de assinaturas, operações financeiras, geração de documentos e integrações com serviços externos.",
+        "es": "Una plataforma modular de gestión web que combina un panel administrativo, gestión de clientes, registro de dependientes, administración de suscripciones, operaciones financieras, generación de documentos e integraciones con servicios externos."
       },
       "engineering": {
-        "en": ["Multi-unit data model with row-level security", "Event-driven approval workflows", "Bi-directional sync with the accounting ERP"],
-        "pt-BR": ["Modelo de dados multiunidade com segurança por linha", "Fluxos de aprovação orientados a eventos", "Sincronização bidirecional com o ERP contábil"],
-        "es": ["Modelo de datos multiunidad con seguridad por fila", "Flujos de aprobación orientados a eventos", "Sincronización bidireccional con el ERP contable"]
+        "en": [
+          "Modular SaaS-oriented application architecture",
+          "Administrative dashboard and client portal",
+          "Customer and dependent management",
+          "Service plans and subscription management",
+          "Dynamic subscription pricing and billing rules",
+          "Recurring invoice and payment management",
+          "Asaas payment integration",
+          "n8n workflow automation",
+          "Contract, invoice and receipt generation",
+          "Server-side business logic and data validation",
+          "PostgreSQL database with Supabase",
+          "Authentication and Row Level Security (RLS)"
+        ],
+        "pt-BR": [
+          "Arquitetura de aplicação modular orientada a SaaS",
+          "Painel administrativo e portal do cliente",
+          "Gerenciamento de clientes e dependentes",
+          "Gestão de planos de serviços e assinaturas",
+          "Precificação dinâmica e regras de faturamento",
+          "Gerenciamento de faturas recorrentes e pagamentos",
+          "Integração com pagamentos Asaas",
+          "Automação de workflows com n8n",
+          "Geração de contratos, faturas e recibos",
+          "Regras de negócio server-side e validação de dados",
+          "Banco de dados PostgreSQL com Supabase",
+          "Autenticação e Row Level Security (RLS)"
+        ],
+        "es": [
+          "Arquitectura modular de aplicación orientada a SaaS",
+          "Panel administrativo y portal del cliente",
+          "Gestión de clientes y dependientes",
+          "Gestión de planes de servicios y suscripciones",
+          "Precios dinámicos y reglas de facturación",
+          "Gestión de facturas recurrentes y pagos",
+          "Integración de pagos con Asaas",
+          "Automatización de workflows con n8n",
+          "Generación de contratos, facturas y recibos",
+          "Lógica de negocio server-side y validación de datos",
+          "Base de datos PostgreSQL con Supabase",
+          "Autenticación y Row Level Security (RLS)"
+        ]
       },
       "approach": {
-        "en": ["Mapped every approval and stock movement with each unit's team.", "Designed a shared data model and the permission matrix before any interface.", "Released procurement first, then inventory and finance, migrating data per unit."],
-        "pt-BR": ["Mapeamos cada aprovação e movimentação de estoque com a equipe de cada unidade.", "Desenhamos o modelo de dados compartilhado e a matriz de permissões antes de qualquer tela.", "Lançamos compras primeiro, depois estoque e finanças, migrando os dados por unidade."],
-        "es": ["Mapeamos cada aprobación y movimiento de inventario con el equipo de cada unidad.", "Diseñamos el modelo de datos compartido y la matriz de permisos antes de cualquier pantalla.", "Lanzamos compras primero, luego inventario y finanzas, migrando los datos por unidad."]
+        "en": [
+          "Designed the application around centralized customer, subscription and financial management.",
+          "Structured the business entities and relational database responsibilities.",
+          "Separated frontend presentation, application services and business rules.",
+          "Defined subscription pricing rules based on included and additional dependents.",
+          "Designed recurring billing and payment synchronization workflows.",
+          "Planned external integrations for payment processing, notifications and workflow automation.",
+          "Established security requirements for authentication, authorization and database access."
+        ],
+        "pt-BR": [
+          "Projetamos a aplicação em torno da gestão centralizada de clientes, assinaturas e operações financeiras.",
+          "Estruturamos as entidades de negócio e as responsabilidades do banco de dados relacional.",
+          "Separamos a apresentação frontend, os serviços da aplicação e as regras de negócio.",
+          "Definimos regras de precificação de assinaturas com base em dependentes incluídos e adicionais.",
+          "Estruturamos fluxos de faturamento recorrente e sincronização de pagamentos.",
+          "Planejamos integrações externas para processamento de pagamentos, notificações e automação de workflows.",
+          "Estabelecemos requisitos de segurança para autenticação, autorização e acesso ao banco de dados."
+        ],
+        "es": [
+          "Diseñamos la aplicación en torno a la gestión centralizada de clientes, suscripciones y operaciones financieras.",
+          "Estructuramos las entidades de negocio y las responsabilidades de la base de datos relacional.",
+          "Separamos la presentación frontend, los servicios de aplicación y las reglas de negocio.",
+          "Definimos reglas de precios de suscripciones basadas en dependientes incluidos y adicionales.",
+          "Estructuramos flujos de facturación recurrente y sincronización de pagos.",
+          "Planificamos integraciones externas para procesamiento de pagos, notificaciones y automatización de workflows.",
+          "Establecimos requisitos de seguridad para autenticación, autorización y acceso a la base de datos."
+        ]
       },
       "scope": {
-        "en": ["Discovery", "Architecture", "UX/UI", "Backend & APIs", "Data migration", "Support"],
-        "pt-BR": ["Descoberta", "Arquitetura", "UX/UI", "Backend e APIs", "Migração de dados", "Suporte"],
-        "es": ["Descubrimiento", "Arquitectura", "UX/UI", "Backend y APIs", "Migración de datos", "Soporte"]
+        "en": [
+          "Full-stack web development",
+          "SaaS application architecture",
+          "Database modeling",
+          "Customer management",
+          "Subscription management",
+          "Billing and payment workflows",
+          "API and external service integration",
+          "Workflow automation",
+          "Document generation",
+          "Security architecture",
+          "UX/UI design"
+        ],
+        "pt-BR": [
+          "Desenvolvimento web full-stack",
+          "Arquitetura de aplicação SaaS",
+          "Modelagem de banco de dados",
+          "Gestão de clientes",
+          "Gestão de assinaturas",
+          "Fluxos de faturamento e pagamentos",
+          "Integração com APIs e serviços externos",
+          "Automação de workflows",
+          "Geração de documentos",
+          "Arquitetura de segurança",
+          "Design UX/UI"
+        ],
+        "es": [
+          "Desarrollo web full-stack",
+          "Arquitectura de aplicación SaaS",
+          "Modelado de base de datos",
+          "Gestión de clientes",
+          "Gestión de suscripciones",
+          "Flujos de facturación y pagos",
+          "Integración con APIs y servicios externos",
+          "Automatización de workflows",
+          "Generación de documentos",
+          "Arquitectura de seguridad",
+          "Diseño UX/UI"
+        ]
       },
-      "technologies": ["TypeScript", "Next.js", "NestJS", "PostgreSQL", "Redis", "Docker", "AWS"],
+      "technologies": [
+        "Next.js",
+        "React",
+        "Supabase",
+        "PostgreSQL",
+        "Asaas",
+        "n8n",
+        "EmailJS",
+        "Vercel"
+      ],
       "preview": {
-        "image": "/projects/atlas-enterprise-platform.svg",
+        "image": "/projects/funeraria-systems-saas.png",
         "alt": {
-          "en": "Atlas dashboard with approvals queue, stock levels and finance overview.",
-          "pt-BR": "Painel do Atlas com fila de aprovações, níveis de estoque e visão financeira.",
-          "es": "Panel de Atlas con cola de aprobaciones, niveles de inventario y visión financiera."
+          "en": "Funeraria Systems SaaS platform featuring customer management, subscriptions and financial administration.",
+          "pt-BR": "Plataforma SaaS Funeraria Systems com gestão de clientes, assinaturas e administração financeira.",
+          "es": "Plataforma SaaS Funeraria Systems con gestión de clientes, suscripciones y administración financiera."
         }
       },
-      "outcomes": { "en": [], "pt-BR": [], "es": [] },
-      "links": { "live": null, "caseStudy": null }
+      "outcomes": {
+        "en": [],
+        "pt-BR": [],
+        "es": []
+      },
+      "links": {
+        "live": "[https://funeraria-systems.vercel.app](https://funeraria-systems.vercel.app)",
+        "caseStudy": null
+      }
     },
     {
-      "slug": "habitar-real-estate-platform",
-      "sample": true,
-      "year": "2024",
-      "client": { "name": "Real estate network (confidential)", "confidential": true },
-      "name": {
-        "en": "Habitar — Real Estate Operations Platform",
-        "pt-BR": "Habitar — Plataforma de Operações Imobiliárias",
-        "es": "Habitar — Plataforma de Operaciones Inmobiliarias"
-      },
-      "industry": { "en": "Real estate", "pt-BR": "Mercado imobiliário", "es": "Sector inmobiliario" },
-      "summary": {
-        "en": "Listings, leads and contracts in one place for agents, owners and back office.",
-        "pt-BR": "Imóveis, leads e contratos em um só lugar para corretores, proprietários e backoffice.",
-        "es": "Propiedades, leads y contratos en un solo lugar para agentes, propietarios y backoffice."
-      },
-      "challenge": {
-        "en": "Listings were published by hand on several portals, leads arrived by e-mail and WhatsApp without an owner, and rental contracts were tracked in folders.",
-        "pt-BR": "Os imóveis eram publicados à mão em vários portais, os leads chegavam por e-mail e WhatsApp sem responsável e os contratos de locação eram controlados em pastas.",
-        "es": "Las propiedades se publicaban a mano en varios portales, los leads llegaban por correo y WhatsApp sin responsable y los contratos de alquiler se controlaban en carpetas."
-      },
-      "solution": {
-        "en": "A platform with a geo-searchable property catalogue, automatic syndication to listing portals, a lead pipeline with assignment rules and a digital contract workflow with e-signature.",
-        "pt-BR": "Uma plataforma com catálogo de imóveis com busca geográfica, publicação automática nos portais, funil de leads com regras de distribuição e fluxo digital de contratos com assinatura eletrônica.",
-        "es": "Una plataforma con catálogo de propiedades con búsqueda geográfica, publicación automática en portales, embudo de leads con reglas de asignación y flujo digital de contratos con firma electrónica."
-      },
-      "engineering": {
-        "en": ["Geospatial search with PostGIS", "Portal syndication via XML/REST feeds", "Lead routing rules engine"],
-        "pt-BR": ["Busca geoespacial com PostGIS", "Publicação em portais via feeds XML/REST", "Motor de regras para distribuição de leads"],
-        "es": ["Búsqueda geoespacial con PostGIS", "Publicación en portales vía feeds XML/REST", "Motor de reglas para asignación de leads"]
-      },
-      "approach": {
-        "en": ["Followed a listing from intake to signed contract with agents and back office.", "Defined one property model that every portal feed could be generated from.", "Rolled out branch by branch with training for each team."],
-        "pt-BR": ["Acompanhamos um imóvel da captação ao contrato assinado com corretores e backoffice.", "Definimos um único modelo de imóvel do qual todos os feeds de portais são gerados.", "Implantamos filial por filial, com treinamento para cada equipe."],
-        "es": ["Seguimos una propiedad desde la captación hasta el contrato firmado con agentes y backoffice.", "Definimos un único modelo de propiedad del que se generan todos los feeds de portales.", "Implantamos sucursal por sucursal, con capacitación para cada equipo."]
-      },
-      "scope": {
-        "en": ["Product strategy", "UX/UI", "Web platform", "Integrations", "Rollout"],
-        "pt-BR": ["Estratégia de produto", "UX/UI", "Plataforma web", "Integrações", "Implantação"],
-        "es": ["Estrategia de producto", "UX/UI", "Plataforma web", "Integraciones", "Implantación"]
-      },
-      "technologies": ["React", "Next.js", "Python", "FastAPI", "PostgreSQL", "PostGIS", "Mapbox", "AWS S3"],
-      "preview": {
-        "image": "/projects/habitar-real-estate-platform.svg",
-        "alt": {
-          "en": "Habitar map search with property pins and listing cards.",
-          "pt-BR": "Busca no mapa do Habitar com marcadores de imóveis e cards de anúncios.",
-          "es": "Búsqueda en mapa de Habitar con marcadores de propiedades y fichas de anuncios."
-        }
-      },
-      "outcomes": { "en": [], "pt-BR": [], "es": [] },
-      "links": { "live": null, "caseStudy": null }
-    },
-    {
-      "slug": "memoria-funeral-management",
-      "sample": true,
-      "year": "2024",
-      "client": { "name": "Funeral services group (confidential)", "confidential": true },
-      "name": {
-        "en": "Memoria — Funeral Services Management System",
-        "pt-BR": "Memoria — Sistema de Gestão para Serviços Funerários",
-        "es": "Memoria — Sistema de Gestión para Servicios Funerarios"
-      },
-      "industry": { "en": "Funeral services", "pt-BR": "Serviços funerários", "es": "Servicios funerarios" },
-      "summary": {
-        "en": "Cases, ceremonies, products and family communication handled with care and precision.",
-        "pt-BR": "Atendimentos, cerimônias, produtos e comunicação com as famílias tratados com cuidado e precisão.",
-        "es": "Servicios, ceremonias, productos y comunicación con las familias gestionados con cuidado y precisión."
-      },
-      "challenge": {
-        "en": "Teams coordinated ceremonies, chapels, vehicles and documents by phone and paper, under time pressure and at a sensitive moment for families. Funeral plan contracts were billed manually.",
-        "pt-BR": "As equipes coordenavam cerimônias, salas, veículos e documentos por telefone e papel, sob pressão de tempo e num momento delicado para as famílias. Os planos funerários eram cobrados manualmente.",
-        "es": "Los equipos coordinaban ceremonias, salas, vehículos y documentos por teléfono y papel, con presión de tiempo y en un momento delicado para las familias. Los planes funerarios se cobraban manualmente."
-      },
-      "solution": {
-        "en": "A management system with case intake, a shared schedule for chapels, staff and vehicles, document generation, product and inventory control, recurring billing for funeral plans and discreet status updates for families.",
-        "pt-BR": "Um sistema de gestão com abertura de atendimento, agenda compartilhada de salas, equipe e veículos, geração de documentos, controle de produtos e estoque, cobrança recorrente dos planos e atualizações discretas para as famílias.",
-        "es": "Un sistema de gestión con apertura de servicios, agenda compartida de salas, personal y vehículos, generación de documentos, control de productos e inventario, cobro recurrente de planes y actualizaciones discretas para las familias."
-      },
-      "engineering": {
-        "en": ["Conflict-free resource scheduling", "Template-based document generation (PDF)", "Recurring billing with payment gateway webhooks"],
-        "pt-BR": ["Agendamento de recursos sem conflitos", "Geração de documentos a partir de modelos (PDF)", "Cobrança recorrente com webhooks do gateway de pagamento"],
-        "es": ["Programación de recursos sin conflictos", "Generación de documentos a partir de plantillas (PDF)", "Cobro recurrente con webhooks de la pasarela de pago"]
-      },
-      "approach": {
-        "en": ["Shadowed the 24/7 intake team to understand each step and its urgency.", "Designed calm, low-friction screens for high-pressure situations.", "Migrated active plans and launched with an on-call support window."],
-        "pt-BR": ["Acompanhamos a equipe de plantão 24h para entender cada etapa e sua urgência.", "Desenhamos telas calmas e com pouco atrito para situações de alta pressão.", "Migramos os planos ativos e lançamos com uma janela de suporte de plantão."],
-        "es": ["Acompañamos al equipo de guardia 24 h para entender cada paso y su urgencia.", "Diseñamos pantallas tranquilas y con poca fricción para situaciones de alta presión.", "Migramos los planes activos y lanzamos con una ventana de soporte de guardia."]
-      },
-      "scope": {
-        "en": ["Process mapping", "UX/UI", "Web application", "Billing integration", "Data migration"],
-        "pt-BR": ["Mapeamento de processos", "UX/UI", "Aplicação web", "Integração de cobrança", "Migração de dados"],
-        "es": ["Mapeo de procesos", "UX/UI", "Aplicación web", "Integración de cobros", "Migración de datos"]
-      },
-      "technologies": ["TypeScript", "Next.js", "Node.js", "Prisma", "PostgreSQL", "WhatsApp Business API", "Azure"],
-      "preview": {
-        "image": "/projects/memoria-funeral-management.svg",
-        "alt": {
-          "en": "Memoria weekly schedule of chapels and ceremonies with the active cases list.",
-          "pt-BR": "Agenda semanal de salas e cerimônias do Memoria com a lista de atendimentos ativos.",
-          "es": "Agenda semanal de salas y ceremonias de Memoria con la lista de servicios activos."
-        }
-      },
-      "outcomes": { "en": [], "pt-BR": [], "es": [] },
-      "links": { "live": null, "caseStudy": null }
-    },
-    {
-      "slug": "flowdesk-internal-automation",
-      "sample": true,
+      "slug": "funeraria-systems-desktop-erp",
+      "sample": false,
       "year": "2025",
-      "client": { "name": "Logistics company (confidential)", "confidential": true },
-      "name": {
-        "en": "Flowdesk — Internal Automation Suite",
-        "pt-BR": "Flowdesk — Suíte de Automação Interna",
-        "es": "Flowdesk — Suite de Automatización Interna"
+      "client": {
+        "name": "Funeraria Systems",
+        "confidential": false
       },
-      "industry": { "en": "Logistics · Back office", "pt-BR": "Logística · Backoffice", "es": "Logística · Backoffice" },
+      "name": {
+        "en": "Funeraria Systems Desktop — Business Management ERP",
+        "pt-BR": "Funeraria Systems Desktop — ERP de Gestão Empresarial",
+        "es": "Funeraria Systems Desktop — ERP de Gestión Empresarial"
+      },
+      "industry": {
+        "en": "Enterprise software · Desktop applications · Business management",
+        "pt-BR": "Software empresarial · Aplicações desktop · Gestão empresarial",
+        "es": "Software empresarial · Aplicaciones de escritorio · Gestión empresarial"
+      },
       "summary": {
-        "en": "Back-office routines turned into monitored, auditable automations.",
-        "pt-BR": "Rotinas de backoffice transformadas em automações monitoradas e auditáveis.",
-        "es": "Rutinas de backoffice convertidas en automatizaciones monitorizadas y auditables."
+        "en": "A desktop ERP application built with Electron, designed to centralize customer records, employee administration, service plans, subscriptions and financial operations through a structured business management environment.",
+        "pt-BR": "Uma aplicação ERP desktop desenvolvida com Electron, projetada para centralizar cadastros de clientes, administração de funcionários, planos de serviços, assinaturas e operações financeiras em um ambiente estruturado de gestão empresarial.",
+        "es": "Una aplicación ERP de escritorio desarrollada con Electron, diseñada para centralizar registros de clientes, administración de empleados, planes de servicios, suscripciones y operaciones financieras en un entorno estructurado de gestión empresarial."
       },
       "challenge": {
-        "en": "Finance and operations spent most of their week copying data between the TMS, e-mail and spreadsheets to reconcile freight invoices and chase approvals.",
-        "pt-BR": "Finanças e operações passavam boa parte da semana copiando dados entre o TMS, e-mails e planilhas para conciliar faturas de frete e cobrar aprovações.",
-        "es": "Finanzas y operaciones pasaban gran parte de la semana copiando datos entre el TMS, el correo y hojas de cálculo para conciliar facturas de flete y perseguir aprobaciones."
+        "en": "Provide a centralized desktop management solution for daily business operations, replacing fragmented administrative processes with structured CRUD workflows, controlled data access and integrated financial management.",
+        "pt-BR": "Disponibilizar uma solução desktop centralizada para as operações empresariais diárias, substituindo processos administrativos fragmentados por fluxos CRUD estruturados, acesso controlado aos dados e gestão financeira integrada.",
+        "es": "Ofrecer una solución de escritorio centralizada para las operaciones empresariales diarias, sustituyendo procesos administrativos fragmentados por flujos CRUD estructurados, acceso controlado a los datos y gestión financiera integrada."
       },
       "solution": {
-        "en": "A suite of automations that reads incoming invoices, matches them against shipments, routes exceptions to the right person and publishes a daily operations report — all with logs and retries.",
-        "pt-BR": "Uma suíte de automações que lê as faturas recebidas, cruza com os embarques, encaminha exceções para a pessoa certa e publica um relatório diário de operações — tudo com logs e reprocessamento.",
-        "es": "Una suite de automatizaciones que lee las facturas recibidas, las cruza con los envíos, deriva excepciones a la persona correcta y publica un informe diario de operaciones, todo con registros y reintentos."
+        "en": "A modular desktop ERP application featuring customer and employee management, service plans, subscriptions, contracts, supplier administration, accounts payable, accounts receivable, cash flow and business reporting.",
+        "pt-BR": "Uma aplicação ERP desktop modular que oferece gerenciamento de clientes e funcionários, planos de serviços, assinaturas, contratos, administração de fornecedores, contas a pagar, contas a receber, fluxo de caixa e relatórios empresariais.",
+        "es": "Una aplicación ERP de escritorio modular que ofrece gestión de clientes y empleados, planes de servicios, suscripciones, contratos, administración de proveedores, cuentas por pagar, cuentas por cobrar, flujo de caja e informes empresariales."
       },
       "engineering": {
-        "en": ["Document parsing with validation rules", "Idempotent jobs with retries and alerts", "Microsoft 365 integration via Graph API"],
-        "pt-BR": ["Leitura de documentos com regras de validação", "Jobs idempotentes com reprocessamento e alertas", "Integração com Microsoft 365 via Graph API"],
-        "es": ["Lectura de documentos con reglas de validación", "Jobs idempotentes con reintentos y alertas", "Integración con Microsoft 365 vía Graph API"]
+        "en": [
+          "Electron-based desktop application architecture",
+          "Cross-platform desktop application foundation",
+          "Modular business management interface",
+          "Customer and dependent CRUD operations",
+          "Employee and user administration",
+          "Service plans and subscription management",
+          "Contract registration and management",
+          "Supplier management",
+          "Accounts payable and receivable",
+          "Financial transactions and cash flow",
+          "Dashboard and business reporting",
+          "Role-based access management",
+          "Structured data persistence",
+          "Application logging and auditability"
+        ],
+        "pt-BR": [
+          "Arquitetura de aplicação desktop baseada em Electron",
+          "Estrutura de aplicação desktop multiplataforma",
+          "Interface modular de gestão empresarial",
+          "Operações CRUD de clientes e dependentes",
+          "Administração de funcionários e usuários",
+          "Gestão de planos de serviços e assinaturas",
+          "Cadastro e gerenciamento de contratos",
+          "Gestão de fornecedores",
+          "Contas a pagar e a receber",
+          "Transações financeiras e fluxo de caixa",
+          "Dashboard e relatórios empresariais",
+          "Gerenciamento de acesso baseado em funções",
+          "Persistência estruturada de dados",
+          "Registro de atividades e rastreabilidade"
+        ],
+        "es": [
+          "Arquitectura de aplicación de escritorio basada en Electron",
+          "Base de aplicación de escritorio multiplataforma",
+          "Interfaz modular de gestión empresarial",
+          "Operaciones CRUD de clientes y dependientes",
+          "Administración de empleados y usuarios",
+          "Gestión de planes de servicios y suscripciones",
+          "Registro y gestión de contratos",
+          "Gestión de proveedores",
+          "Cuentas por pagar y por cobrar",
+          "Transacciones financieras y flujo de caja",
+          "Dashboard e informes empresariales",
+          "Gestión de acceso basada en roles",
+          "Persistencia estructurada de datos",
+          "Registro de actividades y trazabilidad"
+        ]
       },
       "approach": {
-        "en": ["Measured where the team's hours actually went before automating anything.", "Started with the highest-volume routine and kept a human in the loop for exceptions.", "Added monitoring so every run is visible and recoverable."],
-        "pt-BR": ["Medimos para onde iam as horas da equipe antes de automatizar qualquer coisa.", "Começamos pela rotina de maior volume, mantendo uma pessoa no circuito para as exceções.", "Adicionamos monitoramento para que cada execução seja visível e recuperável."],
-        "es": ["Medimos a dónde iban las horas del equipo antes de automatizar nada.", "Empezamos por la rutina de mayor volumen, manteniendo a una persona en el circuito para las excepciones.", "Añadimos monitorización para que cada ejecución sea visible y recuperable."]
+        "en": [
+          "Defined the desktop application around traditional ERP modules and administrative workflows.",
+          "Organized the business domain into independent management modules.",
+          "Structured CRUD operations for customers, employees, plans, subscriptions and suppliers.",
+          "Designed financial workflows for invoices, payments, accounts payable and receivable.",
+          "Established a modular application structure to support future maintenance and expansion.",
+          "Considered role-based permissions and auditability for sensitive business operations."
+        ],
+        "pt-BR": [
+          "Definimos a aplicação desktop em torno de módulos tradicionais de ERP e fluxos administrativos.",
+          "Organizamos o domínio empresarial em módulos independentes de gerenciamento.",
+          "Estruturamos operações CRUD para clientes, funcionários, planos, assinaturas e fornecedores.",
+          "Projetamos fluxos financeiros para faturas, pagamentos, contas a pagar e a receber.",
+          "Estabelecemos uma estrutura modular para facilitar a manutenção e futuras expansões.",
+          "Consideramos permissões baseadas em funções e rastreabilidade para operações empresariais sensíveis."
+        ],
+        "es": [
+          "Definimos la aplicación de escritorio en torno a módulos tradicionales de ERP y flujos administrativos.",
+          "Organizamos el dominio empresarial en módulos independientes de gestión.",
+          "Estructuramos operaciones CRUD para clientes, empleados, planes, suscripciones y proveedores.",
+          "Diseñamos flujos financieros para facturas, pagos, cuentas por pagar y por cobrar.",
+          "Establecimos una estructura modular para facilitar el mantenimiento y futuras ampliaciones.",
+          "Consideramos permisos basados en roles y trazabilidad para operaciones empresariales sensibles."
+        ]
       },
       "scope": {
-        "en": ["Process analysis", "Automation engineering", "Integrations", "Monitoring"],
-        "pt-BR": ["Análise de processos", "Engenharia de automação", "Integrações", "Monitoramento"],
-        "es": ["Análisis de procesos", "Ingeniería de automatización", "Integraciones", "Monitorización"]
+        "en": [
+          "Desktop application development",
+          "Electron application architecture",
+          "Business management system design",
+          "CRUD implementation",
+          "Database modeling",
+          "Customer and employee management",
+          "Subscription and contract management",
+          "Financial management",
+          "Dashboard and reporting",
+          "Access control",
+          "UX/UI design"
+        ],
+        "pt-BR": [
+          "Desenvolvimento de aplicações desktop",
+          "Arquitetura de aplicações Electron",
+          "Design de sistemas de gestão empresarial",
+          "Implementação de operações CRUD",
+          "Modelagem de banco de dados",
+          "Gestão de clientes e funcionários",
+          "Gestão de assinaturas e contratos",
+          "Gestão financeira",
+          "Dashboard e relatórios",
+          "Controle de acesso",
+          "Design UX/UI"
+        ],
+        "es": [
+          "Desarrollo de aplicaciones de escritorio",
+          "Arquitectura de aplicaciones Electron",
+          "Diseño de sistemas de gestión empresarial",
+          "Implementación de operaciones CRUD",
+          "Modelado de base de datos",
+          "Gestión de clientes y empleados",
+          "Gestión de suscripciones y contratos",
+          "Gestión financiera",
+          "Dashboard e informes",
+          "Control de acceso",
+          "Diseño UX/UI"
+        ]
       },
-      "technologies": ["Python", "n8n", "PostgreSQL", "Microsoft Graph API", "Power BI", "Docker"],
+      "technologies": ["Electron"],
       "preview": {
-        "image": "/projects/flowdesk-internal-automation.svg",
+        "image": "/projects/funeraria-systems-saas.png",
         "alt": {
-          "en": "Flowdesk automation flow with connected steps and the latest run log.",
-          "pt-BR": "Fluxo de automação do Flowdesk com etapas conectadas e o log das últimas execuções.",
-          "es": "Flujo de automatización de Flowdesk con pasos conectados y el registro de las últimas ejecuciones."
+          "en": "Funeraria Systems Desktop ERP interface for business administration and financial management.",
+          "pt-BR": "Interface do ERP Funeraria Systems Desktop para administração empresarial e gestão financeira.",
+          "es": "Interfaz del ERP Funeraria Systems Desktop para administración empresarial y gestión financiera."
         }
       },
-      "outcomes": { "en": [], "pt-BR": [], "es": [] },
-      "links": { "live": null, "caseStudy": null }
+      "outcomes": {
+        "en": [],
+        "pt-BR": [],
+        "es": []
+      },
+      "links": {
+        "live": null,
+        "caseStudy": null
+      }
     },
     {
-      "slug": "northwind-corporate-website",
-      "sample": true,
-      "year": "2024",
-      "client": { "name": "Engineering consultancy (confidential)", "confidential": true },
-      "name": {
-        "en": "Northwind — Corporate Website & Digital Platform",
-        "pt-BR": "Northwind — Site Corporativo e Plataforma Digital",
-        "es": "Northwind — Sitio Corporativo y Plataforma Digital"
+      "slug": "funeraria-vida-plus-website",
+      "sample": false,
+      "year": "2025",
+      "client": {
+        "name": "Funerária Vida Plus",
+        "confidential": false
       },
-      "industry": { "en": "Corporate · Digital products", "pt-BR": "Corporativo · Produtos digitais", "es": "Corporativo · Productos digitales" },
+      "name": {
+        "en": "Funerária Vida Plus — Institutional Website",
+        "pt-BR": "Funerária Vida Plus — Website Institucional",
+        "es": "Funerária Vida Plus — Sitio Web Institucional"
+      },
+      "industry": {
+        "en": "Funeral services · Family assistance",
+        "pt-BR": "Serviços funerários · Assistência familiar",
+        "es": "Servicios funerarios · Asistencia familiar"
+      },
       "summary": {
-        "en": "A fast, multilingual corporate site the marketing team can run on its own.",
-        "pt-BR": "Um site corporativo rápido e multilíngue que o marketing consegue gerir sozinho.",
-        "es": "Un sitio corporativo rápido y multilingüe que el equipo de marketing puede gestionar solo."
+        "en": "An institutional website presenting funeral services, family assistance plans and customer support channels through an accessible and welcoming digital experience.",
+        "pt-BR": "Um website institucional que apresenta serviços funerários, planos de assistência familiar e canais de atendimento por meio de uma experiência digital acessível e acolhedora.",
+        "es": "Un sitio web institucional que presenta servicios funerarios, planes de asistencia familiar y canales de atención mediante una experiencia digital accesible y acogedora."
       },
       "challenge": {
-        "en": "An outdated site that only developers could edit, slow on mobile, hard to find in search and unable to support new markets in other languages.",
-        "pt-BR": "Um site desatualizado que só desenvolvedores conseguiam editar, lento no celular, difícil de encontrar nas buscas e sem suporte a novos mercados em outros idiomas.",
-        "es": "Un sitio desactualizado que solo los desarrolladores podían editar, lento en móvil, difícil de encontrar en buscadores y sin soporte para nuevos mercados en otros idiomas."
+        "en": "Establish a professional digital presence that communicates trust, presents the company's services and makes essential information and support channels easily accessible.",
+        "pt-BR": "Estabelecer uma presença digital profissional que transmita confiança, apresente os serviços da empresa e facilite o acesso às informações essenciais e aos canais de atendimento.",
+        "es": "Establecer una presencia digital profesional que transmita confianza, presente los servicios de la empresa y facilite el acceso a información esencial y canales de atención."
       },
       "solution": {
-        "en": "A headless architecture with a structured CMS, a component-based design system, multilingual routing and performance budgets enforced in CI.",
-        "pt-BR": "Uma arquitetura headless com CMS estruturado, design system baseado em componentes, rotas multilíngues e orçamentos de performance verificados no CI.",
-        "es": "Una arquitectura headless con CMS estructurado, design system basado en componentes, rutas multilingües y presupuestos de rendimiento verificados en CI."
+        "en": "An institutional website focused on company presentation, funeral assistance plans, service information and direct communication channels.",
+        "pt-BR": "Um website institucional focado na apresentação da empresa, planos de assistência funerária, informações sobre serviços e canais de comunicação direta.",
+        "es": "Un sitio web institucional enfocado en la presentación de la empresa, planes de asistencia funeraria, información sobre servicios y canales de comunicación directa."
       },
       "engineering": {
-        "en": ["Headless CMS with typed content models", "Static generation with on-demand revalidation", "Accessibility and performance checks in CI"],
-        "pt-BR": ["CMS headless com modelos de conteúdo tipados", "Geração estática com revalidação sob demanda", "Verificações de acessibilidade e performance no CI"],
-        "es": ["CMS headless con modelos de contenido tipados", "Generación estática con revalidación bajo demanda", "Verificaciones de accesibilidad y rendimiento en CI"]
+        "en": [
+          "Institutional content architecture",
+          "Family assistance plan presentation",
+          "Service information organization",
+          "Direct customer communication channels",
+          "Responsive website experience"
+        ],
+        "pt-BR": [
+          "Arquitetura de conteúdo institucional",
+          "Apresentação dos planos de assistência familiar",
+          "Organização das informações sobre serviços",
+          "Canais de comunicação direta com clientes",
+          "Experiência web responsiva"
+        ],
+        "es": [
+          "Arquitectura de contenido institucional",
+          "Presentación de planes de asistencia familiar",
+          "Organización de información sobre servicios",
+          "Canales de comunicación directa con clientes",
+          "Experiencia web adaptable"
+        ]
       },
       "approach": {
-        "en": ["Audited content, search visibility and performance of the old site.", "Built the design system and content models together with the marketing team.", "Migrated content language by language with redirects preserved."],
-        "pt-BR": ["Auditamos conteúdo, visibilidade em buscas e performance do site antigo.", "Construímos o design system e os modelos de conteúdo junto com o marketing.", "Migramos o conteúdo idioma por idioma, preservando os redirecionamentos."],
-        "es": ["Auditamos el contenido, la visibilidad en buscadores y el rendimiento del sitio anterior.", "Construimos el design system y los modelos de contenido junto con marketing.", "Migramos el contenido idioma por idioma, conservando las redirecciones."]
+        "en": [
+          "Structured the institutional content and company presentation.",
+          "Organized service information and family assistance plan communication.",
+          "Prioritized accessibility, navigation clarity and direct customer contact."
+        ],
+        "pt-BR": [
+          "Estruturamos o conteúdo institucional e a apresentação da empresa.",
+          "Organizamos as informações sobre serviços e a comunicação dos planos de assistência familiar.",
+          "Priorizamos acessibilidade, clareza na navegação e contato direto com clientes."
+        ],
+        "es": [
+          "Estructuramos el contenido institucional y la presentación de la empresa.",
+          "Organizamos la información sobre servicios y la comunicación de los planes de asistencia familiar.",
+          "Priorizamos la accesibilidad, la claridad de navegación y el contacto directo con clientes."
+        ]
       },
       "scope": {
-        "en": ["Content strategy", "Design system", "Front-end", "CMS", "SEO"],
-        "pt-BR": ["Estratégia de conteúdo", "Design system", "Front-end", "CMS", "SEO"],
-        "es": ["Estrategia de contenido", "Design system", "Front-end", "CMS", "SEO"]
+        "en": [
+          "Web development",
+          "Institutional website design",
+          "UX/UI design",
+          "Responsive interface",
+          "Content architecture",
+          "Digital brand presentation"
+        ],
+        "pt-BR": [
+          "Desenvolvimento web",
+          "Design de website institucional",
+          "Design UX/UI",
+          "Interface responsiva",
+          "Arquitetura de conteúdo",
+          "Apresentação digital da marca"
+        ],
+        "es": [
+          "Desarrollo web",
+          "Diseño de sitio institucional",
+          "Diseño UX/UI",
+          "Interfaz adaptable",
+          "Arquitectura de contenido",
+          "Presentación digital de marca"
+        ]
       },
-      "technologies": ["Next.js", "TypeScript", "Sanity", "Tailwind CSS", "Vercel"],
+      "technologies": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "React Icons",
+        "PostCSS",
+        "ESLint"
+      ],
       "preview": {
-        "image": "/projects/northwind-corporate-website.svg",
+        "image": "/projects/funeraria-vida-plus-website.png",
         "alt": {
-          "en": "Northwind corporate website home page in desktop and mobile layouts.",
-          "pt-BR": "Página inicial do site corporativo Northwind em layout desktop e mobile.",
-          "es": "Página de inicio del sitio corporativo Northwind en diseño de escritorio y móvil."
+          "en": "Funerária Vida Plus institutional website.",
+          "pt-BR": "Website institucional da Funerária Vida Plus.",
+          "es": "Sitio web institucional de Funerária Vida Plus."
         }
       },
-      "outcomes": { "en": [], "pt-BR": [], "es": [] },
-      "links": { "live": null, "caseStudy": null }
+      "outcomes": {
+        "en": [],
+        "pt-BR": [],
+        "es": []
+      },
+      "links": {
+        "live": "https://funerarividaplus.vercel.app/",
+        "caseStudy": null
+      }
+    },
+    {
+      "slug": "funeraria-do-paulinho-website",
+      "sample": false,
+      "year": "2024",
+      "client": {
+        "name": "Funerária do Paulinho",
+        "confidential": false
+      },
+      "name": {
+        "en": "Funerária do Paulinho — Institutional Website",
+        "pt-BR": "Funerária do Paulinho — Website Institucional",
+        "es": "Funerária do Paulinho — Sitio Web Institucional"
+      },
+      "industry": {
+        "en": "Funeral services",
+        "pt-BR": "Serviços funerários",
+        "es": "Servicios funerarios"
+      },
+      "summary": {
+        "en": "An institutional digital experience designed to present the funeral business, communicate its services and facilitate customer access to contact information.",
+        "pt-BR": "Uma experiência digital institucional desenvolvida para apresentar a empresa funerária, comunicar seus serviços e facilitar o acesso dos clientes às informações de contato.",
+        "es": "Una experiencia digital institucional desarrollada para presentar la empresa funeraria, comunicar sus servicios y facilitar el acceso de los clientes a la información de contacto."
+      },
+      "challenge": {
+        "en": "Create a professional digital presence that communicates the company's identity, organizes institutional information and simplifies access to customer support.",
+        "pt-BR": "Criar uma presença digital profissional que comunique a identidade da empresa, organize as informações institucionais e simplifique o acesso ao atendimento.",
+        "es": "Crear una presencia digital profesional que comunique la identidad de la empresa, organice la información institucional y simplifique el acceso a la atención."
+      },
+      "solution": {
+        "en": "An institutional website focused on company presentation, service communication and accessible customer contact channels.",
+        "pt-BR": "Um website institucional focado na apresentação da empresa, comunicação dos serviços e disponibilização de canais acessíveis de contato com clientes.",
+        "es": "Un sitio web institucional enfocado en la presentación de la empresa, comunicación de servicios y disponibilidad de canales accesibles de contacto con clientes."
+      },
+      "engineering": {
+        "en": [
+          "Institutional website structure",
+          "Service presentation",
+          "Customer contact experience",
+          "Responsive interface"
+        ],
+        "pt-BR": [
+          "Estrutura de website institucional",
+          "Apresentação dos serviços",
+          "Experiência de contato com clientes",
+          "Interface responsiva"
+        ],
+        "es": [
+          "Estructura de sitio web institucional",
+          "Presentación de servicios",
+          "Experiencia de contacto con clientes",
+          "Interfaz adaptable"
+        ]
+      },
+      "approach": {
+        "en": [
+          "Organized the institutional presentation and website content.",
+          "Structured the service communication and navigation experience.",
+          "Prioritized usability, visual consistency and customer accessibility."
+        ],
+        "pt-BR": [
+          "Organizamos a apresentação institucional e o conteúdo do website.",
+          "Estruturamos a comunicação dos serviços e a experiência de navegação.",
+          "Priorizamos usabilidade, consistência visual e acessibilidade para os clientes."
+        ],
+        "es": [
+          "Organizamos la presentación institucional y el contenido del sitio web.",
+          "Estructuramos la comunicación de servicios y la experiencia de navegación.",
+          "Priorizamos la usabilidad, la consistencia visual y la accesibilidad para los clientes."
+        ]
+      },
+      "scope": {
+        "en": [
+          "Web development",
+          "Institutional website design",
+          "UX/UI design",
+          "Responsive interface",
+          "Content organization"
+        ],
+        "pt-BR": [
+          "Desenvolvimento web",
+          "Design de website institucional",
+          "Design UX/UI",
+          "Interface responsiva",
+          "Organização de conteúdo"
+        ],
+        "es": [
+          "Desarrollo web",
+          "Diseño de sitio institucional",
+          "Diseño UX/UI",
+          "Interfaz adaptable",
+          "Organización de contenido"
+        ]
+      },
+      "technologies": [
+        "React",
+        "React DOM",
+        "React Router",
+        "JavaScript",
+        "Vite",
+        "ESLint",
+        "Vercel"
+      ],
+      "preview": {
+        "image": "/projects/funeraria-do-paulinho-website.png",
+        "alt": {
+          "en": "Funerária do Paulinho institutional website.",
+          "pt-BR": "Website institucional da Funerária do Paulinho.",
+          "es": "Sitio web institucional de Funerária do Paulinho."
+        }
+      },
+      "outcomes": {
+        "en": [],
+        "pt-BR": [],
+        "es": []
+      },
+      "links": {
+        "live": "https://funerariapaulinho.vercel.app",
+        "caseStudy": null
+      }
+    },
+    {
+      "slug": "eclat-model-agency-platform",
+      "sample": false,
+      "year": "2025",
+      "client": {
+        "name": "ÉCLAT",
+        "confidential": false
+      },
+      "name": {
+        "en": "ÉCLAT — Model Agency & Professional Services Platform",
+        "pt-BR": "ÉCLAT — Plataforma de Agência de Modelos e Serviços Profissionais",
+        "es": "ÉCLAT — Plataforma de Agencia de Modelos y Servicios Profesionales"
+      },
+      "industry": {
+        "en": "Fashion · Modeling · Professional services",
+        "pt-BR": "Moda · Modelagem · Serviços profissionais",
+        "es": "Moda · Modelaje · Servicios profesionales"
+      },
+      "summary": {
+        "en": "A Laravel-powered platform combining a public-facing model agency website with an administrative dashboard for managing models, services and editorial publications.",
+        "pt-BR": "Uma plataforma desenvolvida com Laravel que combina um website público de agência de modelos com um painel administrativo para gerenciar modelos, serviços e publicações editoriais.",
+        "es": "Una plataforma desarrollada con Laravel que combina un sitio público de agencia de modelos con un panel administrativo para gestionar modelos, servicios y publicaciones editoriales."
+      },
+      "challenge": {
+        "en": "Develop a centralized digital platform to showcase professional models, communicate agency services and provide an administrative environment for managing content and business information.",
+        "pt-BR": "Desenvolver uma plataforma digital centralizada para apresentar modelos profissionais, comunicar os serviços da agência e disponibilizar um ambiente administrativo para gerenciar conteúdos e informações comerciais.",
+        "es": "Desarrollar una plataforma digital centralizada para presentar modelos profesionales, comunicar los servicios de la agencia y ofrecer un entorno administrativo para gestionar contenidos e información comercial."
+      },
+      "solution": {
+        "en": "A full-stack web application with a public website and a protected administration panel, featuring dynamic content management, database persistence and an editorial presentation layer.",
+        "pt-BR": "Uma aplicação web full-stack com website público e painel administrativo protegido, incluindo gerenciamento dinâmico de conteúdo, persistência em banco de dados e camada de apresentação editorial.",
+        "es": "Una aplicación web full-stack con sitio público y panel administrativo protegido, que incluye gestión dinámica de contenidos, persistencia en base de datos y una capa de presentación editorial."
+      },
+      "engineering": {
+        "en": [
+          "Public model agency website",
+          "Dynamic model profile management",
+          "Administrative authentication and access control",
+          "CRUD operations for models, services and posts",
+          "Relational database with migrations and seeders",
+          "MVC architecture using Laravel Controllers, Models and Middleware",
+          "Blade-based server-side rendering",
+          "Responsive interface styled with Tailwind CSS"
+        ],
+        "pt-BR": [
+          "Website público de agência de modelos",
+          "Gerenciamento dinâmico de perfis de modelos",
+          "Autenticação administrativa e controle de acesso",
+          "Operações CRUD para modelos, serviços e publicações",
+          "Banco de dados relacional com migrations e seeders",
+          "Arquitetura MVC utilizando Controllers, Models e Middleware do Laravel",
+          "Renderização server-side com Blade",
+          "Interface responsiva estilizada com Tailwind CSS"
+        ],
+        "es": [
+          "Sitio web público de agencia de modelos",
+          "Gestión dinámica de perfiles de modelos",
+          "Autenticación administrativa y control de acceso",
+          "Operaciones CRUD para modelos, servicios y publicaciones",
+          "Base de datos relacional con migrations y seeders",
+          "Arquitectura MVC utilizando Controllers, Models y Middleware de Laravel",
+          "Renderizado del lado del servidor con Blade",
+          "Interfaz adaptable desarrollada con Tailwind CSS"
+        ]
+      },
+      "approach": {
+        "en": [
+          "Designed the public website structure around model discovery, agency services and editorial content.",
+          "Implemented an administrative authentication flow with protected management areas.",
+          "Structured the application using Laravel MVC principles and Eloquent ORM.",
+          "Created database migrations and seeders to establish the initial application data.",
+          "Integrated Vite and Tailwind CSS into the frontend development workflow."
+        ],
+        "pt-BR": [
+          "Definimos a estrutura do website público em torno da descoberta de modelos, serviços da agência e conteúdo editorial.",
+          "Implementamos um fluxo de autenticação administrativa com áreas de gerenciamento protegidas.",
+          "Estruturamos a aplicação utilizando os princípios MVC do Laravel e o ORM Eloquent.",
+          "Criamos migrations e seeders para estruturar os dados iniciais da aplicação.",
+          "Integramos Vite e Tailwind CSS ao fluxo de desenvolvimento frontend."
+        ],
+        "es": [
+          "Diseñamos la estructura del sitio público en torno al descubrimiento de modelos, los servicios de la agencia y el contenido editorial.",
+          "Implementamos un flujo de autenticación administrativa con áreas de gestión protegidas.",
+          "Estructuramos la aplicación utilizando los principios MVC de Laravel y el ORM Eloquent.",
+          "Creamos migrations y seeders para establecer los datos iniciales de la aplicación.",
+          "Integramos Vite y Tailwind CSS en el flujo de desarrollo frontend."
+        ]
+      },
+      "scope": {
+        "en": [
+          "Full-stack web development",
+          "Backend development",
+          "Frontend development",
+          "Database modeling",
+          "Administrative dashboard",
+          "Authentication and access control",
+          "CRUD implementation",
+          "Responsive UI development"
+        ],
+        "pt-BR": [
+          "Desenvolvimento web full-stack",
+          "Desenvolvimento backend",
+          "Desenvolvimento frontend",
+          "Modelagem de banco de dados",
+          "Painel administrativo",
+          "Autenticação e controle de acesso",
+          "Implementação de operações CRUD",
+          "Desenvolvimento de interface responsiva"
+        ],
+        "es": [
+          "Desarrollo web full-stack",
+          "Desarrollo backend",
+          "Desarrollo frontend",
+          "Modelado de base de datos",
+          "Panel administrativo",
+          "Autenticación y control de acceso",
+          "Implementación de operaciones CRUD",
+          "Desarrollo de interfaz adaptable"
+        ]
+      },
+      "technologies": [
+        "Laravel 11",
+        "PHP 8.3",
+        "MySQL",
+        "Tailwind CSS",
+        "Blade",
+        "Eloquent ORM",
+        "Vite",
+        "Composer",
+        "MAMP"
+      ],
+      "preview": {
+        "image": "/projects/eclat-model-agency-platform.png",
+        "alt": {
+          "en": "ÉCLAT model agency platform with public model profiles and professional services.",
+          "pt-BR": "Plataforma da agência de modelos ÉCLAT com perfis públicos de modelos e serviços profissionais.",
+          "es": "Plataforma de agencia de modelos ÉCLAT con perfiles públicos de modelos y servicios profesionales."
+        }
+      },
+      "outcomes": {
+        "en": [],
+        "pt-BR": [],
+        "es": []
+      },
+      "links": {
+        "live": null,
+        "caseStudy": null
+      }
+    },
+    {
+      "slug": "aurea-design-studio-website",
+      "sample": false,
+      "year": "2024",
+      "client": {
+        "name": "AUREA Design Studio",
+        "confidential": false
+      },
+      "name": {
+        "en": "AUREA Design Studio — Institutional Website",
+        "pt-BR": "AUREA Design Studio — Website Institucional",
+        "es": "AUREA Design Studio — Sitio Web Institucional"
+      },
+      "industry": {
+        "en": "Architecture · Interior design",
+        "pt-BR": "Arquitetura · Design de interiores",
+        "es": "Arquitectura · Diseño de interiores"
+      },
+      "summary": {
+        "en": "An institutional website developed for AUREA Design Studio, combining brand identity, architectural presentation and digital portfolio to strengthen the studio's online presence and connect with potential clients.",
+        "pt-BR": "Um website institucional desenvolvido para o AUREA Design Studio, combinando identidade de marca, apresentação arquitetônica e portfólio digital para fortalecer a presença online do estúdio e conectar-se com potenciais clientes.",
+        "es": "Un sitio web institucional desarrollado para AUREA Design Studio, que combina identidad de marca, presentación arquitectónica y portfolio digital para fortalecer la presencia online del estudio y conectar con potenciales clientes."
+      },
+      "challenge": {
+        "en": "Establish a professional digital presence capable of communicating the studio's creative identity, showcasing architectural and interior design projects, and creating accessible communication channels for potential clients.",
+        "pt-BR": "Estabelecer uma presença digital profissional capaz de comunicar a identidade criativa do estúdio, apresentar projetos de arquitetura e design de interiores e criar canais de comunicação acessíveis para potenciais clientes.",
+        "es": "Establecer una presencia digital profesional capaz de comunicar la identidad creativa del estudio, mostrar proyectos de arquitectura y diseño de interiores y crear canales de comunicación accesibles para potenciales clientes."
+      },
+      "solution": {
+        "en": "An institutional website focused on visual presentation, brand communication and project showcase, bringing together studio information, architectural content and contact channels in a cohesive digital experience.",
+        "pt-BR": "Um website institucional com foco em apresentação visual, comunicação de marca e exposição de projetos, reunindo informações do estúdio, conteúdo arquitetônico e canais de contato em uma experiência digital coesa.",
+        "es": "Un sitio web institucional centrado en la presentación visual, la comunicación de marca y la exhibición de proyectos, reuniendo información del estudio, contenido arquitectónico y canales de contacto en una experiencia digital coherente."
+      },
+      "engineering": {
+        "en": [
+          "Institutional website structure and implementation",
+          "Digital brand identity and visual presentation",
+          "Architectural and interior design portfolio presentation",
+          "Content organization and navigation",
+          "Contact and lead communication channels",
+          "Website deployment and hosting configuration"
+        ],
+        "pt-BR": [
+          "Estrutura e implementação de website institucional",
+          "Identidade de marca digital e apresentação visual",
+          "Apresentação de portfólio de arquitetura e design de interiores",
+          "Organização de conteúdo e navegação",
+          "Canais de contato e comunicação com potenciais clientes",
+          "Implantação do website e configuração de hospedagem"
+        ],
+        "es": [
+          "Estructura e implementación del sitio web institucional",
+          "Identidad de marca digital y presentación visual",
+          "Presentación del portfolio de arquitectura y diseño de interiores",
+          "Organización de contenido y navegación",
+          "Canales de contacto y comunicación con potenciales clientes",
+          "Implementación del sitio web y configuración del alojamiento"
+        ]
+      },
+      "approach": {
+        "en": [
+          "Defined the studio's digital positioning and visual direction.",
+          "Structured the institutional content and project presentation experience.",
+          "Developed the website to communicate the brand and showcase its creative work.",
+          "Organized contact channels to support client acquisition and business communication.",
+          "Published the website using Vercel hosting infrastructure."
+        ],
+        "pt-BR": [
+          "Definimos o posicionamento digital e a direção visual do estúdio.",
+          "Estruturamos o conteúdo institucional e a experiência de apresentação dos projetos.",
+          "Desenvolvemos o website para comunicar a marca e destacar seus trabalhos criativos.",
+          "Organizamos os canais de contato para apoiar a captação de clientes e a comunicação comercial.",
+          "Publicamos o website utilizando a infraestrutura de hospedagem da Vercel."
+        ],
+        "es": [
+          "Definimos el posicionamiento digital y la dirección visual del estudio.",
+          "Estructuramos el contenido institucional y la experiencia de presentación de proyectos.",
+          "Desarrollamos el sitio web para comunicar la marca y destacar sus trabajos creativos.",
+          "Organizamos los canales de contacto para apoyar la captación de clientes y la comunicación comercial.",
+          "Publicamos el sitio web utilizando la infraestructura de alojamiento de Vercel."
+        ]
+      },
+      "scope": {
+        "en": [
+          "Brand identity and digital presence",
+          "Website planning and development",
+          "UX/UI design",
+          "Information architecture",
+          "Institutional content presentation",
+          "Architectural portfolio presentation",
+          "Contact and lead generation structure",
+          "Digital marketing strategy",
+          "Google Ads and SEM planning",
+          "Website deployment"
+        ],
+        "pt-BR": [
+          "Identidade de marca e presença digital",
+          "Planejamento e desenvolvimento do website",
+          "Design UX/UI",
+          "Arquitetura da informação",
+          "Apresentação de conteúdo institucional",
+          "Apresentação do portfólio arquitetônico",
+          "Estrutura de contato e geração de leads",
+          "Estratégia de marketing digital",
+          "Planejamento de Google Ads e SEM",
+          "Implantação do website"
+        ],
+        "es": [
+          "Identidad de marca y presencia digital",
+          "Planificación y desarrollo del sitio web",
+          "Diseño UX/UI",
+          "Arquitectura de información",
+          "Presentación de contenido institucional",
+          "Presentación del portfolio arquitectónico",
+          "Estructura de contacto y generación de leads",
+          "Estrategia de marketing digital",
+          "Planificación de Google Ads y SEM",
+          "Implementación del sitio web"
+        ]
+      },
+      "technologies": [
+        "Vercel"
+      ],
+      "preview": {
+        "image": "/projects/aurea-design-studio-website.png",
+        "alt": {
+          "en": "AUREA Design Studio institutional website showcasing its digital identity and architectural portfolio.",
+          "pt-BR": "Website institucional do AUREA Design Studio apresentando sua identidade digital e portfólio arquitetônico.",
+          "es": "Sitio web institucional de AUREA Design Studio mostrando su identidad digital y portfolio arquitectónico."
+        }
+      },
+      "outcomes": {
+        "en": [],
+        "pt-BR": [],
+        "es": []
+      },
+      "links": {
+        "live": "https://aureadesign.vercel.app/",
+        "caseStudy": null
+      }
+    },
+    {
+      "slug": "lud-arquitetura-website",
+      "sample": true,
+      "year": "2024",
+      "client": {
+        "name": "LUD Arquitetura (reference project)",
+        "confidential": false
+      },
+      "name": {
+        "en": "LUD Architecture — Institutional Website",
+        "pt-BR": "LUD Arquitetura — Website Institucional",
+        "es": "LUD Arquitectura — Sitio Web Institucional"
+      },
+      "industry": {
+        "en": "Architecture · Residential design",
+        "pt-BR": "Arquitetura · Projetos residenciais",
+        "es": "Arquitectura · Diseño residencial"
+      },
+      "summary": {
+        "en": "A premium architectural website showcasing residential projects, construction expertise and a personalized design process.",
+        "pt-BR": "Um website de arquitetura premium que apresenta projetos residenciais, experiência em construção e um processo de desenvolvimento personalizado.",
+        "es": "Un sitio web de arquitectura premium que presenta proyectos residenciales, experiencia en construcción y un proceso de diseño personalizado."
+      },
+      "challenge": {
+        "en": "Communicate the studio's expertise and premium positioning through a digital experience that presents architectural projects, construction progress and client testimonials while generating qualified inquiries.",
+        "pt-BR": "Comunicar a experiência e o posicionamento premium do escritório por meio de uma experiência digital que apresente projetos arquitetônicos, obras em andamento e depoimentos de clientes, gerando oportunidades comerciais qualificadas.",
+        "es": "Comunicar la experiencia y el posicionamiento premium del estudio mediante una experiencia digital que presente proyectos arquitectónicos, obras en curso y testimonios de clientes, generando oportunidades comerciales cualificadas."
+      },
+      "solution": {
+        "en": "A visual-first institutional website combining an architectural portfolio, project showcases, studio presentation, construction indicators, client testimonials and direct contact channels.",
+        "pt-BR": "Um website institucional orientado ao conteúdo visual, combinando portfólio arquitetônico, apresentação de projetos, apresentação do escritório, indicadores de obras, depoimentos de clientes e canais de contato direto.",
+        "es": "Un sitio web institucional orientado al contenido visual, que combina un portfolio arquitectónico, presentación de proyectos, información del estudio, indicadores de obras, testimonios de clientes y canales de contacto directo."
+      },
+      "engineering": {
+        "en": [
+          "Image-focused architectural portfolio",
+          "Project and construction showcase sections",
+          "WhatsApp-oriented lead generation",
+          "Responsive institutional content architecture"
+        ],
+        "pt-BR": [
+          "Portfólio arquitetônico orientado a imagens",
+          "Seções de apresentação de projetos e obras",
+          "Captação de leads integrada ao WhatsApp",
+          "Arquitetura de conteúdo institucional responsiva"
+        ],
+        "es": [
+          "Portfolio arquitectónico orientado a imágenes",
+          "Secciones de presentación de proyectos y obras",
+          "Captación de leads integrada con WhatsApp",
+          "Arquitectura de contenido institucional adaptable"
+        ]
+      },
+      "approach": {
+        "en": [
+          "Reviewed the studio's positioning, services and architectural portfolio.",
+          "Mapped the institutional narrative, project presentation and conversion touchpoints.",
+          "Analyzed the visual hierarchy, content structure and opportunities for performance and SEO improvements."
+        ],
+        "pt-BR": [
+          "Analisamos o posicionamento do escritório, seus serviços e o portfólio arquitetônico.",
+          "Mapeamos a narrativa institucional, a apresentação dos projetos e os pontos de conversão.",
+          "Analisamos a hierarquia visual, a estrutura de conteúdo e as oportunidades de melhoria em performance e SEO."
+        ],
+        "es": [
+          "Analizamos el posicionamiento del estudio, sus servicios y su portfolio arquitectónico.",
+          "Mapeamos la narrativa institucional, la presentación de proyectos y los puntos de conversión.",
+          "Analizamos la jerarquía visual, la estructura del contenido y las oportunidades de mejora en rendimiento y SEO."
+        ]
+      },
+      "scope": {
+        "en": [
+          "Website analysis",
+          "Information architecture",
+          "UX/UI review",
+          "Portfolio structure",
+          "SEO analysis",
+          "Conversion strategy"
+        ],
+        "pt-BR": [
+          "Análise do website",
+          "Arquitetura da informação",
+          "Análise de UX/UI",
+          "Estruturação do portfólio",
+          "Análise de SEO",
+          "Estratégia de conversão"
+        ],
+        "es": [
+          "Análisis del sitio web",
+          "Arquitectura de información",
+          "Análisis UX/UI",
+          "Estructuración del portfolio",
+          "Análisis SEO",
+          "Estrategia de conversión"
+        ]
+      },
+      "technologies": ["Wix", "HTML", "CSS", "JavaScript"],
+      "preview": {
+        "image": "/projects/lud-arquitetura-website.png",
+        "alt": {
+          "en": "LUD Architecture institutional website featuring contemporary residential architecture and project photography.",
+          "pt-BR": "Website institucional da LUD Arquitetura com projetos residenciais contemporâneos e fotografia arquitetônica.",
+          "es": "Sitio institucional de LUD Arquitectura con proyectos residenciales contemporáneos y fotografía arquitectónica."
+        }
+      },
+      "outcomes": {
+        "en": [],
+        "pt-BR": [],
+        "es": []
+      },
+      "links": {
+        "live": "https://www.ludarquitetura.com.br/",
+        "caseStudy": null
+      }
+    },
+    {
+      "slug": "ka2r-arquitetura-website",
+      "sample": true,
+      "year": "2023",
+      "client": {
+        "name": "KA2R Arquitetura (reference project)",
+        "confidential": false
+      },
+      "name": {
+        "en": "KA2R Architecture — Digital Portfolio",
+        "pt-BR": "KA2R Arquitetura — Portfólio Digital",
+        "es": "KA2R Arquitectura — Portfolio Digital"
+      },
+      "industry": {
+        "en": "Architecture · Residential design",
+        "pt-BR": "Arquitetura · Design residencial",
+        "es": "Arquitectura · Diseño residencial"
+      },
+      "summary": {
+        "en": "A minimalist architectural portfolio highlighting contemporary residential projects, visual storytelling and the studio's creative identity.",
+        "pt-BR": "Um portfólio arquitetônico minimalista que destaca projetos residenciais contemporâneos, narrativa visual e identidade criativa do escritório.",
+        "es": "Un portfolio arquitectónico minimalista que destaca proyectos residenciales contemporáneos, narrativa visual e identidad creativa del estudio."
+      },
+      "challenge": {
+        "en": "Present the studio's architectural identity and residential projects through a refined digital experience that prioritizes visual impact, project discovery and direct communication.",
+        "pt-BR": "Apresentar a identidade arquitetônica e os projetos residenciais do escritório por meio de uma experiência digital refinada, priorizando impacto visual, descoberta de projetos e comunicação direta.",
+        "es": "Presentar la identidad arquitectónica y los proyectos residenciales del estudio mediante una experiencia digital refinada que priorice el impacto visual, el descubrimiento de proyectos y la comunicación directa."
+      },
+      "solution": {
+        "en": "A minimalist institutional portfolio centered on architectural photography, project presentation, studio information and contact channels, reinforcing the brand's premium positioning.",
+        "pt-BR": "Um portfólio institucional minimalista centrado em fotografia arquitetônica, apresentação de projetos, informações do escritório e canais de contato, reforçando o posicionamento premium da marca.",
+        "es": "Un portfolio institucional minimalista centrado en fotografía arquitectónica, presentación de proyectos, información del estudio y canales de contacto, reforzando el posicionamiento premium de la marca."
+      },
+      "engineering": {
+        "en": [
+          "Image-led architectural project portfolio",
+          "Project discovery and navigation",
+          "Editorial content presentation",
+          "Institutional contact experience"
+        ],
+        "pt-BR": [
+          "Portfólio de projetos arquitetônicos orientado a imagens",
+          "Descoberta e navegação entre projetos",
+          "Apresentação editorial de conteúdo",
+          "Experiência institucional de contato"
+        ],
+        "es": [
+          "Portfolio de proyectos arquitectónicos orientado a imágenes",
+          "Descubrimiento y navegación entre proyectos",
+          "Presentación editorial de contenido",
+          "Experiencia institucional de contacto"
+        ]
+      },
+      "approach": {
+        "en": [
+          "Reviewed the studio's positioning, team structure and architectural identity.",
+          "Analyzed the project portfolio and visual presentation patterns.",
+          "Mapped the navigation, institutional content and opportunities for UX, SEO and conversion improvements."
+        ],
+        "pt-BR": [
+          "Analisamos o posicionamento do escritório, a estrutura da equipe e a identidade arquitetônica.",
+          "Analisamos o portfólio de projetos e os padrões de apresentação visual.",
+          "Mapeamos a navegação, o conteúdo institucional e as oportunidades de melhoria em UX, SEO e conversão."
+        ],
+        "es": [
+          "Analizamos el posicionamiento del estudio, la estructura del equipo y la identidad arquitectónica.",
+          "Analizamos el portfolio de proyectos y los patrones de presentación visual.",
+          "Mapeamos la navegación, el contenido institucional y las oportunidades de mejora en UX, SEO y conversión."
+        ]
+      },
+      "scope": {
+        "en": [
+          "Website analysis",
+          "UX/UI review",
+          "Information architecture",
+          "Portfolio analysis",
+          "Visual direction",
+          "SEO analysis"
+        ],
+        "pt-BR": [
+          "Análise do website",
+          "Análise de UX/UI",
+          "Arquitetura da informação",
+          "Análise do portfólio",
+          "Direção visual",
+          "Análise de SEO"
+        ],
+        "es": [
+          "Análisis del sitio web",
+          "Análisis UX/UI",
+          "Arquitectura de información",
+          "Análisis del portfolio",
+          "Dirección visual",
+          "Análisis SEO"
+        ]
+      },
+      "technologies": ["Wix"],
+      "preview": {
+        "image": "/projects/ka2r-arquitetura-website.png",
+        "alt": {
+          "en": "KA2R Architecture digital portfolio showcasing contemporary residential architecture.",
+          "pt-BR": "Portfólio digital da KA2R Arquitetura apresentando projetos residenciais contemporâneos.",
+          "es": "Portfolio digital de KA2R Arquitectura mostrando proyectos residenciales contemporáneos."
+        }
+      },
+      "outcomes": {
+        "en": [],
+        "pt-BR": [],
+        "es": []
+      },
+      "links": {
+        "live": "https://www.ka2rarquitetura.com.br/",
+        "caseStudy": null
+      }
     }
   ]
 }
